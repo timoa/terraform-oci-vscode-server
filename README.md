@@ -6,6 +6,9 @@
 
 Terraform project that deploys VSCode Server on Oracle Cloud Infrastructure using only the free tier.
 
+> WARNING: This project is currently under developmnent.
+> Please check back later.
+
 [github-badge]: https://github.com/timoa/terraform-oci-vscode-server/workflows/Terraform/badge.svg
 [github-url]: https://github.com/timoa/terraform-oci-vscode-server/actions?query=workflow%3ATerraform
 [release-badge]: https://img.shields.io/github/release/timoa/terraform-oci-vscode-server.svg
