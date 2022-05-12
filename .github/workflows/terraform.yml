@@ -6,6 +6,7 @@ jobs:
 
   # -- TESTS ------------------------------------------------------------------
   tests:
+    name: Tests
     runs-on: ubuntu-latest
 
     env:
@@ -37,6 +38,7 @@ jobs:
 
   # -- SAST SCAN --------------------------------------------------------------
   code-security:
+    name: Code Security
     runs-on: ubuntu-latest
     needs: tests
     # Skip any PR created by dependabot to avoid permission issues
@@ -61,6 +63,7 @@ jobs:
 
   # -- DOCUMENTATION ----------------------------------------------------------
   documentation:
+    name: Documentation
     runs-on: ubuntu-latest
     needs: tests
 
@@ -79,6 +82,7 @@ jobs:
 
   # -- RELEASE ----------------------------------------------------------------
   release:
+    name: Release
     runs-on: ubuntu-latest
     needs:
       - tests
