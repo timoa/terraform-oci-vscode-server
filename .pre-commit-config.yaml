@@ -1,0 +1,32 @@
+repos:
+  #
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-yaml              ### Control YAML format
+      - id: end-of-file-fixer       ###  Fix end of file with one line
+      - id: trailing-whitespace     ### Remove end of line spaces
+      - id: check-added-large-files ### Check files size to add only 500ko max
+      - id: check-merge-conflict    ### Check if there is already merge conflict(s)
+      - id: detect-private-key      ### Detect private keys
+
+  # Terraform
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.62.3
+    hooks:
+      - id: terraform_fmt      ### Format the Terraform files
+      - id: terraform_validate ### Validate the Terraform project / module
+      - id: terraform_tflint   ### Lint the Terraform files following HashiCorp recommandations
+
+  # Checkov
+  - repo: https://github.com/bridgecrewio/checkov.git
+    rev: '2.0.917'
+    hooks:
+      - id: checkov ### Check misconfiguration and security issues
+
+  # Conventional Commit
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v1.2.0
+    hooks:
+      - id: conventional-pre-commit ### Check if the commit message is compliant with the conventional commit style
+        stages: [commit-msg]

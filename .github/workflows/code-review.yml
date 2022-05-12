@@ -1,0 +1,58 @@
+name: Code Review
+
+on: [pull_request]
+
+jobs:
+
+  # -- LINT -------------------------------------------------------------------
+  tflint:
+    name: TFLint
+    runs-on: ubuntu-latest
+
+    env:
+      TF_VAR_tenancy_ocid: ${{secrets.OCI_TENANCY_OCID}}
+      TF_VAR_user_ocid: ${{secrets.OCI_USER_OCID}}
+      TF_VAR_fingerprint: ${{secrets.OCI_FINGERPRINT}}
+      TF_VAR_private_key: ${{secrets.OCI_PRIVATE_KEY}}
+      TF_VAR_region: ${{secrets.OCI_REGION}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      # Install latest Terraform manually as
+      #  Docker-based GitHub Actions are
+      #  slow due to lack of caching
+      # Note: Terraform is not needed for tflint
+      - name: Install Terraform
+        run: |
+          brew install terraform
+
+      # Run init to get module code to be able to use `--module`
+      - name: Terraform init
+        run: |
+          terraform init
+
+      # Run TFLint
+      - name: tflint with reviewdog output on the PR
+        uses: reviewdog/action-tflint@46e609666b039b775a150e84781ef79ea90089a8 # tag=v1.17.0
+
+  # -- SECURITY ---------------------------------------------------------------
+  tfsec:
+    name: TFSec
+    runs-on: ubuntu-latest
+
+    env:
+      TF_VAR_tenancy_ocid: ${{secrets.OCI_TENANCY_OCID}}
+      TF_VAR_user_ocid: ${{secrets.OCI_USER_OCID}}
+      TF_VAR_fingerprint: ${{secrets.OCI_FINGERPRINT}}
+      TF_VAR_private_key: ${{secrets.OCI_PRIVATE_KEY}}
+      TF_VAR_region: ${{secrets.OCI_REGION}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      # Run TFSec
+      - name: Run tfsec with reviewdog output on the PR
+        uses: reviewdog/action-tfsec@3f1d245c545329b13061259c2f126305893ad138 # tag=v1.15.0

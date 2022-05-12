@@ -1,0 +1,23 @@
+formatter: markdown table
+
+sections:
+  hide:
+    - providers
+
+output:
+  file: "USAGE.md"
+  mode: inject
+
+sort:
+  enabled: false
+
+settings:
+  anchor: true
+  color: true
+  default: true
+  description: true
+  escape: true
+  indent: 2
+  required: true
+  sensitive: true
+  type: true

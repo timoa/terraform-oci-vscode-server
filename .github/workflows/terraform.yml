@@ -1,0 +1,99 @@
+name: Terraform
+
+on: [push]
+
+jobs:
+
+  # -- TESTS ------------------------------------------------------------------
+  tests:
+    runs-on: ubuntu-latest
+
+    env:
+      TF_VAR_tenancy_ocid: ${{secrets.OCI_TENANCY_OCID}}
+      TF_VAR_user_ocid: ${{secrets.OCI_USER_OCID}}
+      TF_VAR_fingerprint: ${{secrets.OCI_FINGERPRINT}}
+      TF_VAR_private_key: ${{secrets.OCI_PRIVATE_KEY}}
+      TF_VAR_region: ${{secrets.OCI_REGION}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@17d4c9b8043b238f6f35641cdd8433da1e6f3867 # tag=v2.0.0
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+
+      - name: Terraform Plan
+        id: apply
+        run: terraform plan
+
+  # -- SAST SCAN --------------------------------------------------------------
+  code-security:
+    runs-on: ubuntu-latest
+    needs: tests
+    # Skip any PR created by dependabot to avoid permission issues
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      - name: Perform Scan
+        uses: ShiftLeftSecurity/scan-action@master
+
+        env:
+          WORKSPACE: https://github.com/${{ github.repository }}/blob/${{ github.sha }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SCAN_ANNOTATE_PR: true
+
+      - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3.0.0
+        with:
+          name: reports
+          path: reports
+
+  # -- DOCUMENTATION ----------------------------------------------------------
+  documentation:
+    runs-on: ubuntu-latest
+    needs: tests
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      - name: Terraform Docs
+        uses: terraform-docs/gh-actions@f6d59f89a280fa0a3febf55ef68f146784b20ba0 # tag=v1.0.0
+        with:
+          working-dir: .
+          output-file: USAGE.md
+          output-method: inject
+          git-push: "true"
+          git-commit-message: "chore(docs): update Terraform docs"
+
+  # -- RELEASE ----------------------------------------------------------------
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - tests
+      - code-security
+      - documentation
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        with:
+          ref: 'main' # Force checkout of main branch to avoid caching from previous jobs
+          persist-credentials: false
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
