@@ -5,7 +5,7 @@
 variable "namespace" {
   type        = string
   description = "Project name that will be use to identifiy the resources"
-  default     = "my-project"
+  default     = "vscode"
 }
 
 variable "stage" {
@@ -22,6 +22,12 @@ variable "tenancy_ocid" {
   type        = string
   description = "Tenancy OCID"
   default     = null # Set with TF_VAR_tenancy_ocid environment variable on ~/.zprofile or ~/.bash_profile
+}
+
+variable "compartment_ocid" {
+  type        = string
+  description = "Compartment OCID"
+  default     = null # Set with TF_VAR_compartment_ocid environment variable on ~/.zprofile or ~/.bash_profile
 }
 
 variable "user_ocid" {
