@@ -7,12 +7,6 @@ locals {
   subnet_dns = "${local.subnet_name}.${var.region}"
 }
 
-# IDentity Availability Domain
-data "oci_identity_availability_domain" "ad" {
-  compartment_id = var.compartment_ocid
-  ad_number      = 1
-}
-
 # Virtual Cloud Network
 resource "oci_core_vcn" "vcn" {
 
@@ -25,7 +19,7 @@ resource "oci_core_vcn" "vcn" {
   cidr_block     = "10.1.0.0/16"
 
   # Labels
-  defined_tags = local.common_labels
+  freeform_tags = local.common_labels
 }
 
 # Internet Gateway
@@ -39,7 +33,7 @@ resource "oci_core_internet_gateway" "igw" {
   display_name   = local.igw_name
 
   # Labels
-  defined_tags = local.common_labels
+  freeform_tags = local.common_labels
 }
 
 # Default Route Table
@@ -57,7 +51,7 @@ resource "oci_core_default_route_table" "default_rt" {
   }
 
   # Labels
-  defined_tags = local.common_labels
+  freeform_tags = local.common_labels
 }
 
 # Subnet
@@ -79,5 +73,5 @@ resource "oci_core_subnet" "subnet" {
   security_list_ids   = [oci_core_vcn.vcn.default_security_list_id]
   
   # Labels
-  defined_tags = local.common_labels
+  freeform_tags = local.common_labels
 }
