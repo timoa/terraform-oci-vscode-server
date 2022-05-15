@@ -1,0 +1,35 @@
+#cloud-config
+
+# Packages : Update repositories
+repo_update: true
+repo_upgrade: all
+
+# Packages: Install security updates
+package_upgrade: true
+
+# timezone: set the timezone
+timezone: UTC
+
+# Test if Block volume is attached & format it if needed
+bootcmd:
+  - mkdir -p /data
+  # - while [ ! -b $(readlink -f ${device_name}) ]; do echo "waiting for device ${device_name}"; sleep 2 ; /usr/sbin/nvme-to-block-mapping ; done
+  # - blkid $(readlink -f ${device_name}) || mkfs -t ext4 $(readlink -f ${device_name})
+  # - e2label $(readlink -f ${device_name}) instance-data
+  # - sed  -i -e '/^[\/][^ \t]*[ \t]*\/data[ \t]/d' /etc/fstab
+  # - grep -q ^LABEL=instance-data /etc/fstab || echo 'LABEL=instance-data /data ext4 defaults' >> /etc/fstab
+  # - grep -q "^$(readlink -f ${device_name}) /data " /proc/mounts || mount /data
+
+mounts:
+  # - [ "${device_name}", "/data", "ext4", "defaults,nofail", "0", "2" ]
+
+runcmd:
+  - chown opc:opc /data 
+  - curl -fOL https://github.com/coder/code-server/releases/download/v${vscode_version}/code-server_${vscode_version}_arm64.deb
+  - dpkg -i code-server_${vscode_version}_arm64.deb
+  - systemctl enable --now code-server@opc
+
+final_message: "System boot (via cloud-init) is COMPLETE, after $UPTIME seconds. Finished at $TIMESTAMP"
+
+output:
+  all: '| tee -a /var/log/cloud-init-output.log'
