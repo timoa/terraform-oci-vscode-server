@@ -85,6 +85,8 @@ resource "oci_core_instance" "instance" {
 # Block Volume
 resource "oci_core_volume" "volume" {
 
+  #checkov:skip=CKV_OCI_2: The 'backup_policy_id' field has been deprecated.
+
   # Global
   compartment_id      = var.compartment_ocid
   availability_domain = data.oci_identity_availability_domain.ad.name
@@ -95,9 +97,6 @@ resource "oci_core_volume" "volume" {
 
   # Encryption
   #checkov:skip=CKV_OCI_3: Volume Encryption with KMS will come in the next release
-
-  # Backups
-  backup_policy_id = data.oci_core_volume_backup_policies.predefined_volume_backup_policies.volume_backup_policies.0.id
 
   # Labels
   freeform_tags = local.common_labels
