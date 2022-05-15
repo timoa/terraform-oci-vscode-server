@@ -1,3 +1,17 @@
+# [0.4.0](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.3.0...v0.4.0) (2022-05-15)
+
+
+### Bug Fixes
+
+* **backups:** remove deprecated command to create volume backups ([25f0c5e](https://github.com/timoa/terraform-oci-vscode-server/commit/25f0c5e62d5e36844dafb6cab65bb6cebf4527ba))
+* **network:** use freefrom_tags instead of defined_tags ([379220a](https://github.com/timoa/terraform-oci-vscode-server/commit/379220ab91fd3f364b277ce5fcf570b73caca69e))
+* **provider:** add missing template provider + TFLint fixes ([c1a09b3](https://github.com/timoa/terraform-oci-vscode-server/commit/c1a09b341f4072e42804a936f06cc12eca8337c2))
+
+
+### Features
+
+* **instance:** add the instance config + cloudinit (WIP) ([9496dc0](https://github.com/timoa/terraform-oci-vscode-server/commit/9496dc0dc9fd9a94afd15ef40712c846b28be06e))
+
 # [0.3.0](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.2.0...v0.3.0) (2022-05-13)
 
 
