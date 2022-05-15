@@ -24,7 +24,7 @@ mounts:
   # - [ "${device_name}", "/data", "ext4", "defaults,nofail", "0", "2" ]
 
 runcmd:
-  - chown opc:opc /data 
+  - chown opc:opc /data
   - curl -fOL https://github.com/coder/code-server/releases/download/v${vscode_version}/code-server_${vscode_version}_arm64.deb
   - dpkg -i code-server_${vscode_version}_arm64.deb
   - systemctl enable --now code-server@opc

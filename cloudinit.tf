@@ -1,8 +1,8 @@
 # Update the Cloud Init template
 data "template_file" "template" {
-  template = "${file("./cloudinit/template.yml")}"
+  template = file("./cloudinit/template.yml")
 
-  vars {
+  vars = {
     vscode_version = var.vscode_version
   }
 }

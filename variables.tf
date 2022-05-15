@@ -71,19 +71,19 @@ variable "instance_shape" {
 variable "instance_ocpus" {
   type        = string
   description = "Number of OCPUS (CPU cores)"
-  default = 4
+  default     = 4
 }
 
 variable "instance_shape_config_memory_in_gbs" {
   type        = string
   description = "Memory in GBs"
-  default = 24
+  default     = 24
 }
 
 variable "block_volume_size" {
-  type       = string
+  type        = string
   description = "Block Volume size in GBs"
-  default = 150
+  default     = 150
 }
 
 variable "instance_os" {
