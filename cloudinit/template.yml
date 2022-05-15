@@ -13,15 +13,6 @@ timezone: UTC
 # Test if Block volume is attached & format it if needed
 bootcmd:
   - mkdir -p /data
-  # - while [ ! -b $(readlink -f ${device_name}) ]; do echo "waiting for device ${device_name}"; sleep 2 ; /usr/sbin/nvme-to-block-mapping ; done
-  # - blkid $(readlink -f ${device_name}) || mkfs -t ext4 $(readlink -f ${device_name})
-  # - e2label $(readlink -f ${device_name}) instance-data
-  # - sed  -i -e '/^[\/][^ \t]*[ \t]*\/data[ \t]/d' /etc/fstab
-  # - grep -q ^LABEL=instance-data /etc/fstab || echo 'LABEL=instance-data /data ext4 defaults' >> /etc/fstab
-  # - grep -q "^$(readlink -f ${device_name}) /data " /proc/mounts || mount /data
-
-mounts:
-  # - [ "${device_name}", "/data", "ext4", "defaults,nofail", "0", "2" ]
 
 runcmd:
   - chown opc:opc /data
