@@ -22,7 +22,8 @@ Terraform project that deploys VSCode Server on Oracle Cloud Infrastructure usin
 - [ ] Encrypt the block volume with a KMS key
 - [ ] Configure backups of the block volume only (WIP)
 - [ ] Configure Cloudflare Zero Trust to secure the instance access
-- [ ] Write the documentation for the manual steps (Oracle Cloud Infrastructure, Cloudflare, etc.)
+- [ ] Write the documentation for the manual steps (Oracle Cloud Infrastructure & Cloudflare accounts, etc.)
+- [ ] Explain how to avoid the "Out of Host capacity" error
 
 [github-badge]: https://github.com/timoa/terraform-oci-vscode-server/workflows/Terraform/badge.svg
 [github-url]: https://github.com/timoa/terraform-oci-vscode-server/actions?query=workflow%3ATerraform
