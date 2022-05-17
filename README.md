@@ -17,7 +17,7 @@ Terraform project that deploys VSCode Server on Oracle Cloud Infrastructure usin
 - [x] Attach the block volume to the instance
 - [x] Create the instance on free tier (4 vCPU, 24GB memory)
 - [x] Configure the instance and install VSCode Server with Cloud Init
-- [ ] Create automatically the SSH key pair
+- [x] Create automatically the SSH key pair
 - [ ] Mount and format the block volume on `/data` (WIP)
 - [ ] Encrypt the block volume with a KMS key
 - [ ] Configure backups of the block volume only (WIP)

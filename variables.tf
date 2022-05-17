@@ -109,6 +109,64 @@ variable "vscode_version" {
 }
 
 #############################
+# Key Pairs
+#############################
+
+variable "keypair_name" {
+  type        = string
+  description = "Name of the Key Pair (instance or service for ex.)"
+  default     = null
+}
+
+variable "keypair_public_key" {
+  type        = string
+  description = "A pregenerated OpenSSH-formatted public key. Changing this creates a new keypair. If a public key is not specified, then a public/private key pair will be automatically generated. If a pair is created, then destroying this resource means you will lose access to that keypair forever."
+  default     = null
+}
+
+variable "keypair_public_key_path" {
+  type        = string
+  description = "Path to Public Key directory (e.g. `/keypairs`)"
+  default     = "./keypairs"
+}
+
+variable "keypair_key_algorithm" {
+  type        = string
+  description = "Key Pair algorithm"
+  default     = "RSA"
+}
+
+variable "keypair_private_key" {
+  type        = string
+  description = "A pregenerated OpenSSH-formatted private key. Changing this creates a new keypair. If a private key is not specified, then a public/private key pair will be automatically generated. If a pair is created, then destroying this resource means you will lose access to that keypair forever."
+  default     = null
+}
+
+variable "keypair_private_key_extension" {
+  type        = string
+  description = "Private key extension"
+  default     = ""
+}
+
+variable "keypair_public_key_extension" {
+  type        = string
+  description = "Public key extension"
+  default     = ".pub"
+}
+
+variable "keypair_chmod_command_public" {
+  type        = string
+  description = "Template of the command executed on the public key file"
+  default     = "chmod 600 %v"
+}
+
+variable "keypair_chmod_command_private" {
+  type        = string
+  description = "Template of the command executed on the private key file"
+  default     = "chmod 400 %v"
+}
+
+#############################
 # Labels
 #############################
 
