@@ -1,3 +1,11 @@
+## [0.4.1](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.4.0...v0.4.1) (2022-05-17)
+
+
+### Bug Fixes
+
+* **key-pair:** add the automatic Key Pair generation ([173b469](https://github.com/timoa/terraform-oci-vscode-server/commit/173b4698f2eca04047d7df6316fb2245594f6fd2))
+* **network:** fix too long DNS name (max 15 chars only) ([97a0865](https://github.com/timoa/terraform-oci-vscode-server/commit/97a08652502c191e154cc67421b5f40650ee2c00))
+
 # [0.4.0](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.3.0...v0.4.0) (2022-05-15)
 
 
