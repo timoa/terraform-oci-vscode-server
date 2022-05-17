@@ -1,10 +1,9 @@
 locals {
   vcn_name        = "${var.namespace}-vcn-${var.stage}"
-  vcn_dns         = "${local.vcn_name}.${var.region}"
+  dns_name        = var.namespace
   igw_name        = "${var.namespace}-igw-${var.stage}"
   default_rt_name = "${var.namespace}-default-rt-${var.stage}"
   subnet_name     = "${var.namespace}-subnet-${var.stage}"
-  subnet_dns      = "${local.subnet_name}.${var.region}"
 }
 
 # Virtual Cloud Network
@@ -15,7 +14,7 @@ resource "oci_core_vcn" "vcn" {
 
   # VCN
   display_name = local.vcn_name
-  dns_label    = local.vcn_dns
+  dns_label    = local.dns_name
   cidr_block   = "10.1.0.0/16"
 
   # Labels
@@ -63,7 +62,7 @@ resource "oci_core_subnet" "subnet" {
 
   # Subnet
   display_name        = local.subnet_name
-  dns_label           = local.subnet_dns
+  dns_label           = local.dns_name
   availability_domain = data.oci_identity_availability_domain.ad.name
   cidr_block          = "10.1.20.0/24"
   route_table_id      = oci_core_vcn.vcn.default_route_table_id
