@@ -59,6 +59,34 @@ variable "region" {
 }
 
 #############################
+# Security Lists
+#############################
+
+variable "allowed_ingress_ssh" {
+  type        = list(string)
+  description = "List of IPs allowed to SSH on the instance"
+  default     = []
+}
+
+variable "allowed_egress_ssh" {
+  type        = list(string)
+  description = "List of IPs the instance is allowed to connect"
+  default     = ["0.0.0.0/0"]
+}
+
+variable "allowed_ingress_vscode" {
+  type        = list(string)
+  description = "List of IPs allowed to access to VS Code Server"
+  default     = []
+}
+
+variable "allowed_egress_vscode" {
+  type        = list(string)
+  description = "List of IPs the instance is allowed to connect"
+  default     = ["0.0.0.0/0"]
+}
+
+#############################
 # Instance
 #############################
 
@@ -80,12 +108,6 @@ variable "instance_shape_config_memory_in_gbs" {
   default     = 24
 }
 
-variable "block_volume_size" {
-  type        = string
-  description = "Block Volume size in GBs"
-  default     = 150
-}
-
 variable "instance_os" {
   type        = string
   description = "Instance OS"
@@ -96,6 +118,28 @@ variable "instance_os_version" {
   type        = string
   description = "Instance OS Version"
   default     = "20.04"
+}
+
+variable "instance_os_user" {
+  type        = string
+  description = "Instance User"
+  default     = "ubuntu" # opc if Oracle Linux
+}
+
+#############################
+# Block Volume (/data)
+#############################
+
+variable "block_volume_size" {
+  type        = string
+  description = "Block Volume size in GBs (/data)"
+  default     = 100
+}
+
+variable "block_volume_device_name" {
+  type        = string
+  description = "Block Volume device name (/dev/oracleoci/oraclevdb)"
+  default     = "/dev/oracleoci/oraclevdb"
 }
 
 #############################
