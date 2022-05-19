@@ -22,13 +22,14 @@ No modules.
 | [local_file.public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.2/docs/resources/file) | resource |
 | [null_resource.private_key_chmod](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
 | [null_resource.public_key_chmod](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
+| [null_resource.remote_exec](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
 | [oci_core_default_route_table.default_rt](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_default_route_table) | resource |
 | [oci_core_instance.instance](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_instance) | resource |
 | [oci_core_internet_gateway.igw](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_internet_gateway) | resource |
 | [oci_core_subnet.subnet](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_subnet) | resource |
 | [oci_core_vcn.vcn](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_vcn) | resource |
 | [oci_core_volume.volume](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_volume) | resource |
-| [oci_core_volume_attachment.volume_attach](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_volume_attachment) | resource |
+| [oci_core_volume_attachment.volume_attachment](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_volume_attachment) | resource |
 | [oci_core_volume_backup_policy_assignment.policy](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_volume_backup_policy_assignment) | resource |
 | [tls_private_key.default](https://registry.terraform.io/providers/hashicorp/tls/3.4.0/docs/resources/private_key) | resource |
 | [oci_core_images.ubuntu_20_04_aarch64](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/data-sources/core_images) | data source |
@@ -52,9 +53,11 @@ No modules.
 | <a name="input_instance_shape"></a> [instance\_shape](#input\_instance\_shape) | Instance Shape | `string` | `"VM.Standard.A1.Flex"` | no |
 | <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of OCPUS (CPU cores) | `string` | `4` | no |
 | <a name="input_instance_shape_config_memory_in_gbs"></a> [instance\_shape\_config\_memory\_in\_gbs](#input\_instance\_shape\_config\_memory\_in\_gbs) | Memory in GBs | `string` | `24` | no |
-| <a name="input_block_volume_size"></a> [block\_volume\_size](#input\_block\_volume\_size) | Block Volume size in GBs | `string` | `150` | no |
+| <a name="input_block_volume_size"></a> [block\_volume\_size](#input\_block\_volume\_size) | Block Volume size in GBs (/data) | `string` | `100` | no |
+| <a name="input_block_volume_device_name"></a> [block\_volume\_device\_name](#input\_block\_volume\_device\_name) | Block Volume device name (/dev/oracleoci/oraclevdb) | `string` | `"/dev/oracleoci/oraclevdb"` | no |
 | <a name="input_instance_os"></a> [instance\_os](#input\_instance\_os) | Instance OS | `string` | `"Canonical Ubuntu"` | no |
 | <a name="input_instance_os_version"></a> [instance\_os\_version](#input\_instance\_os\_version) | Instance OS Version | `string` | `"20.04"` | no |
+| <a name="input_instance_os_user"></a> [instance\_os\_user](#input\_instance\_os\_user) | Instance User | `string` | `"ubuntu"` | no |
 | <a name="input_vscode_version"></a> [vscode\_version](#input\_vscode\_version) | VS Code Server Version | `string` | `"4.4.0"` | no |
 | <a name="input_keypair_name"></a> [keypair\_name](#input\_keypair\_name) | Name of the Key Pair (instance or service for ex.) | `string` | `null` | no |
 | <a name="input_keypair_public_key"></a> [keypair\_public\_key](#input\_keypair\_public\_key) | A pregenerated OpenSSH-formatted public key. Changing this creates a new keypair. If a public key is not specified, then a public/private key pair will be automatically generated. If a pair is created, then destroying this resource means you will lose access to that keypair forever. | `string` | `null` | no |
