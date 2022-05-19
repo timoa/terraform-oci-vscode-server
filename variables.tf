@@ -82,8 +82,14 @@ variable "instance_shape_config_memory_in_gbs" {
 
 variable "block_volume_size" {
   type        = string
-  description = "Block Volume size in GBs"
-  default     = 150
+  description = "Block Volume size in GBs (/data)"
+  default     = 100
+}
+
+variable "block_volume_device_name" {
+  type        = string
+  description = "Block Volume device name (/dev/oracleoci/oraclevdb)"
+  default     = "/dev/oracleoci/oraclevdb"
 }
 
 variable "instance_os" {
@@ -96,6 +102,12 @@ variable "instance_os_version" {
   type        = string
   description = "Instance OS Version"
   default     = "20.04"
+}
+
+variable "instance_os_user" {
+  type        = string
+  description = "Instance User"
+  default     = "ubuntu" # opc if Oracle Linux
 }
 
 #############################
