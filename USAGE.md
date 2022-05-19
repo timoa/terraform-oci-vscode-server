@@ -34,7 +34,7 @@ No modules.
 | [tls_private_key.default](https://registry.terraform.io/providers/hashicorp/tls/3.4.0/docs/resources/private_key) | resource |
 | [oci_core_images.ubuntu_20_04_aarch64](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/data-sources/core_images) | data source |
 | [oci_core_volume_backup_policies.predefined_volume_backup_policies](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/data-sources/core_volume_backup_policies) | data source |
-| [oci_identity_availability_domain.ad](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/data-sources/identity_availability_domain) | data source |
+| [oci_identity_availability_domains.ads](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/data-sources/identity_availability_domains) | data source |
 | [template_cloudinit_config.cloudinit](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/cloudinit_config) | data source |
 | [template_file.template](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/file) | data source |
 
