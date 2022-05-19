@@ -4,6 +4,7 @@ locals {
   igw_name        = "${var.namespace}-igw-${var.stage}"
   default_rt_name = "${var.namespace}-default-rt-${var.stage}"
   subnet_name     = "${var.namespace}-subnet-${var.stage}"
+  seclist_name    = "${var.namespace}-seclist-${var.stage}"
 }
 
 # Virtual Cloud Network
@@ -69,7 +70,10 @@ resource "oci_core_subnet" "subnet" {
   dhcp_options_id     = oci_core_vcn.vcn.default_dhcp_options_id
 
   # Security
-  security_list_ids = [oci_core_vcn.vcn.default_security_list_id]
+  security_list_ids = [
+    oci_core_security_list.security_list_ssh.id,
+    oci_core_security_list.security_list_vscode.id,
+  ]
 
   # Labels
   freeform_tags = local.common_labels
