@@ -6,8 +6,8 @@ terraform {
       source  = "oracle/oci"
       version = "4.72.0"
     }
-    template = {
-      source  = "hashicorp/template"
+    cloudinit = {
+      source  = "hashicorp/cloudinit"
       version = "2.2.0"
     }
     null = {

@@ -66,7 +66,7 @@ resource "oci_core_instance" "instance" {
 
   metadata = {
     ssh_authorized_keys = tls_private_key.default[0].public_key_openssh
-    user_data           = base64encode(data.template_cloudinit_config.cloudinit.rendered)
+    user_data           = data.cloudinit_config.cloudinit.rendered
   }
 
   preemptible_instance_config {
