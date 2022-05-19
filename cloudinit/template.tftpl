@@ -13,7 +13,12 @@ timezone: UTC
 runcmd:
   - curl -fOL https://github.com/coder/code-server/releases/download/v${vscode_version}/code-server_${vscode_version}_arm64.deb # Download the code-server package
   - dpkg -i code-server_${vscode_version}_arm64.deb # Install the code-server package
-  - systemctl enable --now code-server@${user}
+  - systemctl enable --now code-server@${user} # Enable the code-server service
+  - rm -Rf /home/${user}/.local/share/code-server # Remove the existing code-server data
+  - mkdir -p /data/code-server /home/${user}/.local/share # Create the code-server data directory
+  - ln -s /data/code-server /home/${user}/.local/share/code-server # Link VS Code Server data to default folder on the boot volume
+  - chown -R ${user}:${user} /data/code-server # Set the VS Code Server data ownership
+  - systemctl restart code-server@${user} # Restart the code-server service
 
 final_message: "System boot (via cloud-init) is COMPLETE, after $UPTIME seconds. Finished at $TIMESTAMP"
 
