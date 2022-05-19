@@ -4,7 +4,6 @@ locals {
   igw_name        = "${var.namespace}-igw-${var.stage}"
   default_rt_name = "${var.namespace}-default-rt-${var.stage}"
   subnet_name     = "${var.namespace}-subnet-${var.stage}"
-  seclist_name    = "${var.namespace}-seclist-${var.stage}"
 }
 
 # Virtual Cloud Network
