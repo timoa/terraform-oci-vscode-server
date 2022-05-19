@@ -63,7 +63,7 @@ resource "oci_core_subnet" "subnet" {
   # Subnet
   display_name        = local.subnet_name
   dns_label           = local.dns_name
-  availability_domain = data.oci_identity_availability_domain.ad.name
+  availability_domain = local.availability_domain
   cidr_block          = "10.1.20.0/24"
   route_table_id      = oci_core_vcn.vcn.default_route_table_id
   dhcp_options_id     = oci_core_vcn.vcn.default_dhcp_options_id

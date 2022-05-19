@@ -5,7 +5,7 @@ resource "oci_core_volume" "volume" {
 
   # Global
   compartment_id      = var.compartment_ocid
-  availability_domain = data.oci_identity_availability_domain.ad.name
+  availability_domain = local.availability_domain
   display_name        = local.block_volume_name
 
   # Volume
