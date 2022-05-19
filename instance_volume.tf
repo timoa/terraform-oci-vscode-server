@@ -39,6 +39,10 @@ resource "null_resource" "remote_exec" {
     oci_core_volume_attachment.volume_attachment,
   ]
 
+  triggers = {
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
+  }
+
   provisioner "remote-exec" {
     connection {
       agent       = false
