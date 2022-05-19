@@ -10,15 +10,10 @@ package_upgrade: true
 # timezone: set the timezone
 timezone: UTC
 
-# Test if Block volume is attached & format it if needed
-bootcmd:
-  - mkdir -p /data
-
 runcmd:
-  - chown opc:opc /data
-  - curl -fOL https://github.com/coder/code-server/releases/download/v${vscode_version}/code-server_${vscode_version}_arm64.deb
-  - dpkg -i code-server_${vscode_version}_arm64.deb
-  - systemctl enable --now code-server@opc
+  - curl -fOL https://github.com/coder/code-server/releases/download/v${vscode_version}/code-server_${vscode_version}_arm64.deb # Download the code-server package
+  - dpkg -i code-server_${vscode_version}_arm64.deb # Install the code-server package
+  - systemctl enable --now code-server@${user}
 
 final_message: "System boot (via cloud-init) is COMPLETE, after $UPTIME seconds. Finished at $TIMESTAMP"
 

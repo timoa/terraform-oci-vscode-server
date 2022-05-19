@@ -3,6 +3,7 @@ data "template_file" "template" {
   template = file("./cloudinit/template.yml")
 
   vars = {
+    user           = var.instance_os_user
     vscode_version = var.vscode_version
   }
 }
