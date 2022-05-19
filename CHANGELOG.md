@@ -1,3 +1,18 @@
+# [0.5.0](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.4.1...v0.5.0) (2022-05-19)
+
+
+### Bug Fixes
+
+* **ad:** use dynamic AD attribution to avoid the "Out of Host capacity" error on the free tier ([254c3b0](https://github.com/timoa/terraform-oci-vscode-server/commit/254c3b0e6d11eb045a64018db441c140a7b0423f))
+* **cloudinit:** remove the deprecated template provider ([8955dc7](https://github.com/timoa/terraform-oci-vscode-server/commit/8955dc7db4677dcbc3a3f3914210880b2133a910))
+* **instance:** trigger the mount script on volume attachment changes ([55e5369](https://github.com/timoa/terraform-oci-vscode-server/commit/55e536923776e4d7d86c4f63f1b8f5a6343990d8))
+* **network:** remove unused variable ([35208a4](https://github.com/timoa/terraform-oci-vscode-server/commit/35208a49aae25bf9efb127628a4fbb4ab3989dce))
+
+
+### Features
+
+* **firewall:** add a security list for SSH and VScode ([14cf9a4](https://github.com/timoa/terraform-oci-vscode-server/commit/14cf9a4aee110da4e67a83d06c85755a20c910bb))
+
 ## [0.4.1](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.4.0...v0.4.1) (2022-05-17)
 
 
