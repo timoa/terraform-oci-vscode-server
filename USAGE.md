@@ -79,6 +79,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_instance_private_ips"></a> [instance\_private\_ips](#output\_instance\_private\_ips) | Instance Private IP |
-| <a name="output_instance_public_ips"></a> [instance\_public\_ips](#output\_instance\_public\_ips) | Instance Public IP |
+| <a name="output_instance_private_ip"></a> [instance\_private\_ip](#output\_instance\_private\_ip) | VS Code Server Instance Private IP |
+| <a name="output_instance_public_ip"></a> [instance\_public\_ip](#output\_instance\_public\_ip) | VS Code Server Instance Public IP |
 <!-- END_TF_DOCS -->
