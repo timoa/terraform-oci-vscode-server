@@ -27,14 +27,17 @@ jobs:
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check
+        working-directory: ./terraform
         continue-on-error: true
 
       - name: Terraform Init
         id: init
+        working-directory: ./terraform
         run: terraform init
 
       - name: Terraform Plan
         id: apply
+        working-directory: ./terraform
         run: terraform plan
 
   # -- SAST SCAN --------------------------------------------------------------
