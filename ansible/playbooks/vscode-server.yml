@@ -1,0 +1,50 @@
+---
+# This playbook mount the OCI Block Volume to /data
+- hosts: server
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Download VS Code Server
+      get_url:
+        url: "https://github.com/coder/code-server/releases/download/v{{vscode_version}}/code-server_{{vscode_version}}_arm64.deb"
+        dest: "/tmp/code-server_{{vscode_version}}_arm64.deb"
+
+    - name: Install VS Code Server
+      apt:
+        deb: "/tmp/code-server_{{vscode_version}}_arm64.deb"
+
+    - name: Enable the VSCode Server service
+      ansible.builtin.systemd:
+        name: "code-server@{{user}}"
+        enabled: yes
+        masked: no
+
+    - name: Create the VS Code Server folder on /data
+      file:
+        path: "/data/code-server"
+        state: directory
+        mode: 0755
+        group: "{{user}}"
+        owner: "{{user}}"
+
+    - name: Create the projects folder on /data
+      file:
+        path: "/data/projects"
+        state: directory
+        mode: 0755
+        group: "{{user}}"
+        owner: "{{user}}"
+
+    - name: Update the VS Code Server config
+      ansible.builtin.lineinfile:
+        path: "/home/{{user}}/.config/code-server/config.yaml"
+        line: "user-data-dir: /data/code-server"
+        regexp: "^user-data-dir: /data/code-server"
+        state: present
+
+    - name: Restart the VSCode Server service
+      ansible.builtin.systemd:
+        name: "code-server@{{user}}"
+        state: restarted
+        daemon_reload: yes
