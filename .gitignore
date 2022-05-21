@@ -1,12 +1,12 @@
 # Local .terraform directories
-**/.terraform/*
+**/**/.terraform/*
 
 # .tfstate files
-*.tfstate
-*.tfstate.*
+**/*.tfstate
+**/*.tfstate.*
 
 # Crash log files
-crash.log
+**/crash.log
 
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
@@ -16,10 +16,10 @@ crash.log
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
+**/override.tf
+**/override.tf.json
+**/*_override.tf
+**/*_override.tf.json
 
 # Include override files you do wish to add to version control using negated pattern
 #
@@ -29,4 +29,9 @@ override.tf.json
 # example: *tfplan*
 
 # Key Pair files
-keypairs/**/*
+**/keypairs/**/*
+
+# Ansible
+ansible/hosts.yml
+ansible/group_vars/**/*.yml
+ansible/host_vars/**/*.yml
