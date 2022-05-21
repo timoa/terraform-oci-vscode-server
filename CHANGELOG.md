@@ -1,3 +1,10 @@
+## [0.5.1](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.5.0...v0.5.1) (2022-05-21)
+
+
+### Bug Fixes
+
+* **lint:** TFLint fixes ([42197fc](https://github.com/timoa/terraform-oci-vscode-server/commit/42197fcb4c522d82f9766d64b48e3b8314fac7ef))
+
 # [0.5.0](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.4.1...v0.5.0) (2022-05-19)
 
 
