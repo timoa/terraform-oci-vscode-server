@@ -30,3 +30,8 @@
 
 # Key Pair files
 **/keypairs/**/*
+
+# Ansible
+ansible/hosts.yml
+ansible/group_vars/**/*.yml
+ansible/host_vars/**/*.yml
