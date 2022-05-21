@@ -1,3 +1,6 @@
+#############################
+# Configure Ansible
+#############################
 
 # Create the Ansible inventory file (hosts)
 resource "local_file" "ansible_hosts" {
@@ -23,4 +26,19 @@ resource "local_file" "ansible_variables" {
     vscode_version       = var.vscode_version
   })
   filename = "${path.root}/../ansible/group_vars/server/all.yml"
+}
+
+#############################
+# Install
+#############################
+
+# Install VS Code Server
+resource "null_resource" "vscode_install" {
+  depends_on = [
+    null_resource.mount_data_volume
+  ]
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -i ${path.root}/../ansible/hosts.yml ${path.root}/../ansible/playbooks/vscode-server.yml"
+  }
 }
