@@ -20,9 +20,9 @@ No modules.
 |------|------|
 | [local_file.private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.2.2/docs/resources/file) | resource |
 | [local_file.public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.2/docs/resources/file) | resource |
+| [null_resource.post_install](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
 | [null_resource.private_key_chmod](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
 | [null_resource.public_key_chmod](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
-| [null_resource.remote_exec](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
 | [oci_core_default_route_table.default_rt](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_default_route_table) | resource |
 | [oci_core_instance.instance](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_instance) | resource |
 | [oci_core_internet_gateway.igw](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_internet_gateway) | resource |
@@ -79,6 +79,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_instance_private_ips"></a> [instance\_private\_ips](#output\_instance\_private\_ips) | Instance Private IP |
-| <a name="output_instance_public_ips"></a> [instance\_public\_ips](#output\_instance\_public\_ips) | Instance Public IP |
+| <a name="output_instance_private_ip"></a> [instance\_private\_ip](#output\_instance\_private\_ip) | VS Code Server Instance Private IP |
+| <a name="output_instance_public_ip"></a> [instance\_public\_ip](#output\_instance\_public\_ip) | VS Code Server Instance Public IP |
 <!-- END_TF_DOCS -->
