@@ -153,6 +153,16 @@ variable "vscode_version" {
 }
 
 #############################
+# VS Code Server Dependencies
+#############################
+
+variable "install_devops_deps" {
+  type        = bool
+  description = "Install DevOps tools like Docker, Helm, Terraform, Ansible, etc."
+  default     = false
+}
+
+#############################
 # Key Pairs
 #############################
 
