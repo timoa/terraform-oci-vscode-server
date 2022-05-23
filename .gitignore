@@ -33,5 +33,6 @@
 
 # Ansible
 ansible/hosts.yml
+ansible/roles/**/*
 ansible/group_vars/**/*.yml
 ansible/host_vars/**/*.yml
