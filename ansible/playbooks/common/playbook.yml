@@ -1,0 +1,16 @@
+---
+# This playbook install the common packages
+- hosts: server
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Install OpenJDK
+      apt:
+        name: openjdk-16-jdk
+        state: present
+
+    - name: Install OpenJDK JRE
+      apt:
+        name: openjdk-16-jre-headless
+        state: present
