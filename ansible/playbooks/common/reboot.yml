@@ -1,0 +1,11 @@
+---
+# This playbook install the common packages
+- hosts: server
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Reboot the server, wait for it to go down, come back up, and respond to the command "whoami"
+      become: yes
+      reboot:
+        reboot_timeout: 600 # You can adapt the timeout to your needs
