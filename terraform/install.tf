@@ -29,16 +29,31 @@ resource "local_file" "ansible_variables" {
 }
 
 #############################
-# Install
+# Install the packages
 #############################
 
-# Install VS Code Server
-resource "null_resource" "vscode_install" {
+# Install Common roles
+resource "null_resource" "common_playbook" {
   depends_on = [
     null_resource.mount_data_volume
   ]
 
   provisioner "local-exec" {
-    command = "ansible-playbook -i ${path.root}/../ansible/hosts.yml ${path.root}/../ansible/playbooks/vscode-server.yml"
+    command = "bash ${path.root}/../ansible/playbooks/common/run.sh"
+  }
+}
+
+# Install DevOps roles (if enabled)
+resource "null_resource" "devops_roles" {
+
+  count = var.install_devops_deps ? 1 : 0
+
+  depends_on = [
+    null_resource.mount_data_volume,
+    null_resource.common_playbook,
+  ]
+
+  provisioner "local-exec" {
+    command = "bash ${path.root}/../ansible/playbooks/for-devops/run.sh"
   }
 }

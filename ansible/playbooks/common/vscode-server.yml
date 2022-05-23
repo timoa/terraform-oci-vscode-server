@@ -17,6 +17,7 @@
     - name: Enable the VSCode Server service
       ansible.builtin.systemd:
         name: "code-server@{{user}}"
+        state: started
         enabled: yes
         masked: no
 
