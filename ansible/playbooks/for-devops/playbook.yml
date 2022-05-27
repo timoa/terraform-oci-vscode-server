@@ -1,0 +1,11 @@
+---
+# This playbook install the common packages
+- hosts: server
+  become: true
+
+  roles:
+    - role: geerlingguy.helm
+      helm_arch: arm64
+
+    - role: geerlingguy.docker_arm
+      docker_install_compose: false

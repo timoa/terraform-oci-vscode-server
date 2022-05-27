@@ -31,3 +31,19 @@ resource "oci_core_volume_attachment" "volume_attachment" {
   # Security
   use_chap = true
 }
+
+# Mount the volume on /data if the volume has been un-attached
+resource "null_resource" "mount_data_volume" {
+  depends_on = [
+    oci_core_instance.instance,
+    oci_core_volume_attachment.volume_attachment,
+  ]
+
+  triggers = {
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
+  }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -i ${path.root}/../ansible/hosts.yml ${path.root}/../ansible/playbooks/oci-data-volume.yml"
+  }
+}

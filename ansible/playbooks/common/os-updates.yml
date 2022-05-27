@@ -1,0 +1,11 @@
+---
+# This playbook install the common packages
+- hosts: server
+  become: true
+
+  tasks:
+    - name: Update apt-get repo and cache
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+
+    - name: Upgrade all apt packages
+      apt: upgrade=dist force_apt_get=yes
