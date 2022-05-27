@@ -24,6 +24,8 @@ data "oci_core_images" "ubuntu_20_04_aarch64" {
 # Instance
 resource "oci_core_instance" "instance" {
 
+  count = var.maintenance_mode ? 0 : 1
+
   # Global
   compartment_id      = var.compartment_ocid
   availability_domain = local.availability_domain

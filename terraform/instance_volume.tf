@@ -22,9 +22,11 @@ resource "oci_core_volume" "volume" {
 # Volume attachment
 resource "oci_core_volume_attachment" "volume_attachment" {
 
+  count = var.maintenance_mode ? 0 : 1
+
   # Global
   attachment_type = "iscsi"
-  instance_id     = oci_core_instance.instance.id
+  instance_id     = oci_core_instance.instance[0].id
   volume_id       = oci_core_volume.volume.id
   device          = var.block_volume_device_name
 
@@ -34,13 +36,16 @@ resource "oci_core_volume_attachment" "volume_attachment" {
 
 # Mount the volume on /data if the volume has been un-attached
 resource "null_resource" "mount_data_volume" {
+
+  count = var.maintenance_mode ? 0 : 1
+
   depends_on = [
     oci_core_instance.instance,
     oci_core_volume_attachment.volume_attachment,
   ]
 
   triggers = {
-    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment[0].id # Trigger on volume attachment changes
   }
 
   provisioner "local-exec" {

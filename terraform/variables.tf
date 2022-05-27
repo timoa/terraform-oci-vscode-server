@@ -15,7 +15,17 @@ variable "stage" {
 }
 
 #############################
-# Oracle Cloud Infrastrcture
+# Maintenance Mode
+#############################
+
+variable "maintenance_mode" {
+  type        = bool
+  description = "Destroy the VSCode Server instance to let Packer create a new VM image (free tier)"
+  default     = false
+}
+
+#############################
+# Oracle Cloud Infrastructure
 #############################
 
 variable "tenancy_ocid" {
