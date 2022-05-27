@@ -38,6 +38,10 @@ resource "null_resource" "common_playbook" {
     null_resource.mount_data_volume
   ]
 
+  triggers = {
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
+  }
+
   provisioner "local-exec" {
     command = "bash ${path.root}/../ansible/playbooks/common/run.sh"
   }
@@ -52,6 +56,10 @@ resource "null_resource" "devops_roles" {
     null_resource.mount_data_volume,
     null_resource.common_playbook,
   ]
+
+  triggers = {
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
+  }
 
   provisioner "local-exec" {
     command = "bash ${path.root}/../ansible/playbooks/for-devops/run.sh"
