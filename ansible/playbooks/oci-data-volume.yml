@@ -33,7 +33,10 @@
       ignore_errors: true # ignore errors if the session already exists
 
     - name: Check if the volume is formated. if not it will be formated with ext4
-      shell: "blkid $(readlink -f {{volume_device_name}}) || mkfs -t ext4 $(readlink -f {{volume_device_name}})"
+      community.general.filesystem:
+        fstype: ext4
+        state: present
+        dev: "{{volume_device_name}}"
 
     - name: Add the label "instance-data"
       shell: "e2label $(readlink -f {{volume_device_name}}) instance-data"
