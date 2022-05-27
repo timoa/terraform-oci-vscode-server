@@ -1,3 +1,22 @@
+# [0.6.0](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.5.1...v0.6.0) (2022-05-27)
+
+
+### Bug Fixes
+
+* **ansible:** provides system information to the playbooks ([e1e4e0e](https://github.com/timoa/terraform-oci-vscode-server/commit/e1e4e0e9d309c5138c1353a18719c6fca384a71d))
+* **ansible:** use Ansible command to check if the block volume is formated or not ([a88c58a](https://github.com/timoa/terraform-oci-vscode-server/commit/a88c58acd30304a1f18a2c5811c34f4b4384501b))
+* **cloudinit:** update the path to the template + cleanup (WIP) ([a1bd7ff](https://github.com/timoa/terraform-oci-vscode-server/commit/a1bd7ffc009f15a9987d17004354280ca929291c))
+* **install:** trigger te local exec scripts when the instance is replaced ([61a928b](https://github.com/timoa/terraform-oci-vscode-server/commit/61a928b05ab20003e13e60dcb1ef14f2d5c278db))
+* **project:** fix previous messy commit ([1818695](https://github.com/timoa/terraform-oci-vscode-server/commit/1818695df13bb2fada564ed39f4736826960abe7))
+
+
+### Features
+
+* **ansible:** ad the playbooks for mounting the /data volume + VSCode Server install ([5119802](https://github.com/timoa/terraform-oci-vscode-server/commit/5119802dd2b165a507cd628b39416d05a3b69841))
+* **ansible:** add common + devops deps (if enabled) with Ansible ([4598921](https://github.com/timoa/terraform-oci-vscode-server/commit/4598921e6e22881bb32cf0603398e0aef1124da6))
+* **install:** create the Ansible hosts and vars files from the Terraform state ([bbde721](https://github.com/timoa/terraform-oci-vscode-server/commit/bbde7211d2041b6f2d8936177c344ff428f737b7))
+* **install:** execute the Ansible Playbooks for mounting /data + VS Code Server install ([6dc2e69](https://github.com/timoa/terraform-oci-vscode-server/commit/6dc2e697840f2c6420784898906339b892c56fe2))
+
 ## [0.5.1](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.5.0...v0.5.1) (2022-05-21)
 
 
