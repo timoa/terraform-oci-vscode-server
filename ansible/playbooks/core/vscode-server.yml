@@ -1,8 +1,7 @@
 ---
 # This playbook mount the OCI Block Volume to /data
-- hosts: server
+- hosts: all
   become: true
-  gather_facts: false
 
   tasks:
     - name: Download VS Code Server

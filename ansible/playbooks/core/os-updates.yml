@@ -1,6 +1,6 @@
 ---
 # This playbook install the common packages
-- hosts: server
+- hosts: all
   become: true
 
   tasks:
