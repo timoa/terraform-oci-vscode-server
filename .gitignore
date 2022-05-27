@@ -31,6 +31,9 @@
 # Key Pair files
 **/keypairs/**/*
 
+# Packer
+packer/override.pkvars.hcl
+
 # Ansible
 ansible/hosts.yml
 ansible/roles/**/*
