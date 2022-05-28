@@ -62,6 +62,12 @@ variable "region" {
 # Cloudflare Zero Trust
 #############################
 
+variable "cf_account_id" {
+  type        = string
+  description = "Set by TF_VAR_cf_account_id environment variable on ~/.zprofile or ~/.bash_profile"
+  default     = null
+}
+
 variable "cf_zero_trust_enabled" {
   type        = bool
   description = "Register VSCode with Cloudflare Zero Trust"
