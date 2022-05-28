@@ -27,6 +27,7 @@ jobs:
             registry.terraform.io:443
             github.com:443
             iaas.uk-london-1.oraclecloud.com:443
+            identity.uk-london-1.oci.oraclecloud.com:443
             objects.githubusercontent.com:443
             releases.hashicorp.com:443
 
