@@ -15,7 +15,7 @@ variable "stage" {
 }
 
 #############################
-# Oracle Cloud Infrastrcture
+# Oracle Cloud Infrastructure
 #############################
 
 variable "tenancy_ocid" {
@@ -56,6 +56,22 @@ variable "region" {
   type        = string
   description = "Default Region"
   default     = "uk-london-1"
+}
+
+#############################
+# Cloudflare Zero Trust
+#############################
+
+variable "cf_zero_trust_enabled" {
+  type        = bool
+  description = "Register VSCode with Cloudflare Zero Trust"
+  default     = false
+}
+
+variable "cf_domain" {
+  type        = string
+  description = "Domain Name for Cloudflare Zero Trust"
+  default     = "example.com"
 }
 
 #############################
