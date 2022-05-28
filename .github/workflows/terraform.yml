@@ -24,6 +24,7 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             checkpoint-api.hashicorp.com:443
+            registry.terraform.io:443
             github.com:443
             iaas.uk-london-1.oraclecloud.com:443
             objects.githubusercontent.com:443
