@@ -16,9 +16,6 @@ jobs:
       TF_VAR_fingerprint: ${{secrets.OCI_FINGERPRINT}}
       TF_VAR_private_key: ${{secrets.OCI_PRIVATE_KEY}}
       TF_VAR_region: ${{secrets.OCI_REGION}}
-      TF_VAR_cf_account_id: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
-      CLOUDFLARE_EMAIL: ${{secrets.CLOUDFLARE_EMAIL}}
-      CLOUDFLARE_API_KEY: ${{secrets.CLOUDFLARE_API_KEY}}
 
     steps:
       - name: Harden GitHub Actions Runner
@@ -27,13 +24,10 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             checkpoint-api.hashicorp.com:443
-            registry.terraform.io:443
             github.com:443
             iaas.uk-london-1.oraclecloud.com:443
-            identity.uk-london-1.oci.oraclecloud.com:443
             objects.githubusercontent.com:443
             releases.hashicorp.com:443
-            api.cloudflare.com:443
 
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
@@ -72,9 +66,7 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             github.com:443
-            api.github.com:443
             pipelines.actions.githubusercontent.com:443
-            pypi.org:443
 
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
