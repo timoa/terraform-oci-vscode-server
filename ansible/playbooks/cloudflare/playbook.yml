@@ -1,0 +1,58 @@
+---
+# This playbook install the Cloudflare Agent (cloudflared)
+- hosts: server
+  become: true
+
+  tasks:
+    - name: Download Cloudflare Agent (deb)
+      get_url:
+        url: "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64.deb"
+        dest: "/tmp/cloudflared-linux-arm64.deb"
+
+    - name: Install Cloudflare Agent
+      apt:
+        deb: "/tmp/cloudflared-linux-arm64.deb"
+
+    - name: Create the Cloudflare Agent config folder
+      ansible.builtin.file:
+        path: "/etc/cloudflared"
+        state: directory
+
+    - name: Create the Cloudflare Agent cert file
+      ansible.builtin.copy:
+        dest: "/etc/cloudflared/cert.json"
+        content: |
+          {
+            "AccountTag"   : "{{cf_account_id}}",
+            "TunnelID"     : "{{cf_tunnel_id}}",
+            "TunnelName"   : "{{cf_tunnel_name}}",
+            "TunnelSecret" : "{{cf_tunnel_secret}}"
+          }
+
+    - name: Create the Cloudflare Agent config file
+      ansible.builtin.copy:
+        dest: "/etc/cloudflared/config.yml"
+        content: |
+          tunnel: {{cf_tunnel_id}}
+          credentials-file: /etc/cloudflared/cert.json
+          logfile: /var/log/cloudflared.log
+          loglevel: info
+
+          ingress:
+            - hostname: {{cf_zone}}
+              service: http://localhost:8080
+            - hostname: "*"
+              service: hello-world
+
+    - name: Increase the UDP Receive Buffer Size needed for the QUIC protocol
+      shell: sysctl -w net.core.rmem_max=2500000
+
+    - name: Install the Cloudflare Access tunnel
+      shell: "cloudflared service install"
+
+    - name: Enable the Cloudflare Agent service
+      ansible.builtin.systemd:
+        name: "cloudflared"
+        state: started
+        enabled: yes
+        masked: no
