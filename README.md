@@ -45,8 +45,8 @@ Currently, Oracle Cloud Free tier provides great performance (4vCPU ARM based, 2
 - [x] Mount and format the block volume on `/data`
 - [x] Restrict SSH and VS Code port access
 - [x] Configure backups of the block volume only
+- [ ] Configure Cloudflare Access (ZeroTrust) to secure the instance access
 - [ ] Encrypt the block volume with a KMS key
-- [ ] Configure Cloudflare Zero Trust to secure the instance access
 - [ ] Write the documentation for the manual steps (Oracle Cloud Infrastructure & Cloudflare accounts, etc.)
 - [ ] Explain how to avoid the "Out of Host capacity" error
 
