@@ -21,7 +21,13 @@ jobs:
       - name: Harden GitHub Actions Runner
         uses: step-security/harden-runner@dd5681a7d0c66fb362664d618ef4a90d656f6516
         with:
-          egress-policy: audit
+          egress-policy: block
+          allowed-endpoints: >
+            checkpoint-api.hashicorp.com:443
+            github.com:443
+            iaas.uk-london-1.oraclecloud.com:443
+            objects.githubusercontent.com:443
+            releases.hashicorp.com:443
 
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
@@ -57,7 +63,10 @@ jobs:
       - name: Harden GitHub Actions Runner
         uses: step-security/harden-runner@dd5681a7d0c66fb362664d618ef4a90d656f6516
         with:
-          egress-policy: audit
+          egress-policy: block
+          allowed-endpoints: >
+            github.com:443
+            pipelines.actions.githubusercontent.com:443
 
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
@@ -85,7 +94,9 @@ jobs:
       - name: Harden GitHub Actions Runner
         uses: step-security/harden-runner@dd5681a7d0c66fb362664d618ef4a90d656f6516
         with:
-          egress-policy: audit
+          egress-policy: block
+          allowed-endpoints: >
+            github.com:443
 
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
