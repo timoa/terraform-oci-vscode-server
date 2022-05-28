@@ -66,6 +66,7 @@ variable "cf_account_id" {
   type        = string
   description = "Set by TF_VAR_cf_account_id environment variable on ~/.zprofile or ~/.bash_profile"
   default     = null
+  sensitive   = true
 }
 
 variable "cf_zero_trust_enabled" {
@@ -78,6 +79,12 @@ variable "cf_domain" {
   type        = string
   description = "Domain Name for Cloudflare Zero Trust"
   default     = "example.com"
+}
+
+variable "cf_subdomain" {
+  type        = string
+  description = "Subdomain Name for Cloudflare Zero Trust"
+  default     = "vscode"
 }
 
 #############################

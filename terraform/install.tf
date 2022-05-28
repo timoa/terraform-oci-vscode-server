@@ -24,6 +24,11 @@ resource "local_file" "ansible_variables" {
     volume_chap_password = oci_core_volume_attachment.volume_attachment.chap_secret
     volume_device_name   = var.block_volume_device_name
     vscode_version       = var.vscode_version
+    cf_account_id        = var.cf_account_id
+    cf_tunnel_id         = cloudflare_argo_tunnel.cf_tunnel.id != null ? cloudflare_argo_tunnel.cf_tunnel.id : ""
+    cf_tunnel_name       = local.cf_tunnel_name
+    cf_tunnel_secret     = local.cf_argo_secret
+    cf_zone              = local.cf_cname != null ? local.cf_cname : ""
   })
   filename = "${path.root}/../ansible/group_vars/server/all.yml"
 }
@@ -44,6 +49,22 @@ resource "null_resource" "common_playbook" {
 
   provisioner "local-exec" {
     command = "bash ${path.root}/../ansible/playbooks/common/run.sh"
+  }
+}
+
+# Install Cloudflare agent
+resource "null_resource" "cloudflare_playbook" {
+  depends_on = [
+    null_resource.mount_data_volume,
+    null_resource.common_playbook,
+  ]
+
+  triggers = {
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
+  }
+
+  provisioner "local-exec" {
+    command = "bash ${path.root}/../ansible/playbooks/cloudflare/run.sh"
   }
 }
 
