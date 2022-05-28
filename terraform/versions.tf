@@ -6,6 +6,10 @@ terraform {
       source  = "oracle/oci"
       version = "4.72.0"
     }
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "3.15.0"
+    }
     cloudinit = {
       source  = "hashicorp/cloudinit"
       version = "2.2.0"
