@@ -87,6 +87,12 @@ variable "cf_subdomain" {
   default     = "vscode"
 }
 
+variable "cf_allowed_users" {
+  type        = list(string)
+  description = "Users (emails) allowed to access the VSCode Server application"
+  default     = []
+}
+
 #############################
 # Security Lists
 #############################
