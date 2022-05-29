@@ -16,6 +16,9 @@ jobs:
       TF_VAR_fingerprint: ${{secrets.OCI_FINGERPRINT}}
       TF_VAR_private_key: ${{secrets.OCI_PRIVATE_KEY}}
       TF_VAR_region: ${{secrets.OCI_REGION}}
+      TF_VAR_cf_account_id: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+      CLOUDFLARE_EMAIL: ${{secrets.CLOUDFLARE_EMAIL}}
+      CLOUDFLARE_API_KEY: ${{secrets.CLOUDFLARE_API_KEY}}
 
     steps:
       - name: Harden GitHub Actions Runner
@@ -54,6 +57,9 @@ jobs:
       TF_VAR_fingerprint: ${{secrets.OCI_FINGERPRINT}}
       TF_VAR_private_key: ${{secrets.OCI_PRIVATE_KEY}}
       TF_VAR_region: ${{secrets.OCI_REGION}}
+      TF_VAR_cf_account_id: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+      CLOUDFLARE_EMAIL: ${{secrets.CLOUDFLARE_EMAIL}}
+      CLOUDFLARE_API_KEY: ${{secrets.CLOUDFLARE_API_KEY}}
 
     steps:
       - name: Harden GitHub Actions Runner
