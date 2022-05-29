@@ -1,12 +1,15 @@
 locals {
-  cf_zone_id     = var.cf_zero_trust_enabled ? data.cloudflare_zone.cf_zone.id : ""
+  cf_zone_id     = var.cf_zero_trust_enabled ? data.cloudflare_zone.cf_zone[0].id : ""
   cf_cname       = "${var.cf_subdomain}.${var.cf_domain}"
   cf_tunnel_name = "${var.namespace}-tunnel-${var.stage}"
-  cf_argo_secret = random_id.argo_secret[0].b64_std
+  cf_argo_secret = var.cf_zero_trust_enabled ? random_id.argo_secret[0].b64_std : ""
 }
 
 # Get the zone ID for the given domain
 data "cloudflare_zone" "cf_zone" {
+
+  count = var.cf_zero_trust_enabled ? 1 : 0
+
   name = var.cf_domain
 }
 
@@ -16,7 +19,7 @@ data "cloudflare_zone" "cf_zone" {
 
 # Create a secret for the Cloudflare Argo Tunnel
 resource "random_id" "argo_secret" {
-  
+
   count = var.cf_zero_trust_enabled ? 1 : 0
 
   byte_length = 35
