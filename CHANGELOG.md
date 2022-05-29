@@ -1,3 +1,27 @@
+# [0.7.0](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.6.0...v0.7.0) (2022-05-29)
+
+
+### Bug Fixes
+
+* **ansible:** reboot only if there is kernel updates that really need a reboot ([d3296ac](https://github.com/timoa/terraform-oci-vscode-server/commit/d3296acb296bcec2fb16ebed0a10e459eb7920ab))
+* **cicd:** add missing Cloudflare ENV vars ([1bd7090](https://github.com/timoa/terraform-oci-vscode-server/commit/1bd7090cf9528b67e266f5ba690ae718fa763285))
+* **cicd:** add the CLoudflare API on the Harden runner allow list ([e6f4922](https://github.com/timoa/terraform-oci-vscode-server/commit/e6f492285780285bf90ef18d6a0b26315809a659))
+* **cloudflare:** fix Ansible vars file when Cloudflare is not enabled ([6b2267b](https://github.com/timoa/terraform-oci-vscode-server/commit/6b2267b0e01ca4bf3d0148cbc8171cf6f70934d0))
+* **cloudflare:** fix condition for zone data source ([a34b86c](https://github.com/timoa/terraform-oci-vscode-server/commit/a34b86cbfd451408834c1fcc3e73fa6a484b8396))
+
+
+### Features
+
+* **cloudflare:** add support to the Cloudflare provider ([f6b17f8](https://github.com/timoa/terraform-oci-vscode-server/commit/f6b17f8284ed21f46c955d85973dc97cd8c5329d))
+* **cloudflare:** add the Cloudflare Account ID ([da14c31](https://github.com/timoa/terraform-oci-vscode-server/commit/da14c31d8277b12f6c4d9cdf4b76b56b8f6ebae4))
+* **cloudflare:** create a dedicated Cloudflare Ansible playbook ([5eb5516](https://github.com/timoa/terraform-oci-vscode-server/commit/5eb5516dcf5d594cf1267f4884cb33aaeccb4e71))
+* **cloudflare:** create the Cloudflare Access Tunnel ([367af1d](https://github.com/timoa/terraform-oci-vscode-server/commit/367af1d585f3169e153ff3693f802f69060339b3))
+* **cloudflare:** create the Cloudflare Tunnel automatically and allow only list of users ([1251841](https://github.com/timoa/terraform-oci-vscode-server/commit/12518412147432bb40a1b91d0198e119895aecd2))
+* **cloudflare:** get the Zone ID + create the Cloudflare Access Application ([1a0fe4b](https://github.com/timoa/terraform-oci-vscode-server/commit/1a0fe4bbced9e43d6608fbb3ae8424165bdca14f))
+* **cloudflare:** install the Cloudflare agent (cloudflared) with Ansible ([716b194](https://github.com/timoa/terraform-oci-vscode-server/commit/716b194eff38c708cf128a8f192232edcd63d3b1))
+* **cloudflare:** make Cloudflare Zero Trust optional ([62316ac](https://github.com/timoa/terraform-oci-vscode-server/commit/62316ac252b675cbf91bdd3381e3c6d821c84797))
+* **vscode:** deactivate password since using SSH tunnel or Cloudflare Zero Trust ([c41c99e](https://github.com/timoa/terraform-oci-vscode-server/commit/c41c99e2ce0ab4b1c1357fd4086437eb62cade6d))
+
 # [0.6.0](https://github.com/timoa/terraform-oci-vscode-server/compare/v0.5.1...v0.6.0) (2022-05-27)
 
 
