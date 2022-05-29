@@ -3,7 +3,7 @@
 BASEDIR=$(dirname $0)
 
 # Install the Ansible roles
-ansible-galaxy install -r $BASEDIR/roles.yml
+# ansible-galaxy install -r $BASEDIR/roles.yml
 
 # Install updates
 ansible-playbook -i $BASEDIR/../../hosts.yml $BASEDIR/os-updates.yml
@@ -13,6 +13,3 @@ ansible-playbook -i $BASEDIR/../../hosts.yml $BASEDIR/vscode-server.yml
 
 # Install the other required packages
 ansible-playbook -i $BASEDIR/../../hosts.yml $BASEDIR/playbook.yml
-
-# Reboot the server
-ansible-playbook -i $BASEDIR/../../hosts.yml $BASEDIR/reboot.yml
