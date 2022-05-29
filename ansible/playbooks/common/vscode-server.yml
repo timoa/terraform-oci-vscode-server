@@ -37,7 +37,13 @@
         group: "{{user}}"
         owner: "{{user}}"
 
-    - name: Update the VS Code Server config
+    - name: Deactivate the VSCode authentification (protected by SSH connection or Cloudflare Zero Trust)
+      ansible.builtin.replace:
+        path: "/home/{{user}}/.config/code-server/config.yaml"
+        regexp: '(\s+)password(\s+.*)?$'
+        replace: '\1none\2'
+
+    - name: Update the VS Code Server user data path to /data/code-server
       ansible.builtin.lineinfile:
         path: "/home/{{user}}/.config/code-server/config.yaml"
         line: "user-data-dir: /data/code-server"
