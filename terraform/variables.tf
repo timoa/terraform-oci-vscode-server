@@ -198,6 +198,52 @@ variable "install_devops_deps" {
 }
 
 #############################
+# DevOps Tools
+#############################
+
+variable "terraform_version" {
+  type        = string
+  description = "Terraform Version"
+  default     = "1.2.1"
+}
+
+variable "tfdocs_version" {
+  type        = string
+  description = "Terraform Docs Version"
+  default     = "0.16.0"
+}
+
+variable "tfsec_version" {
+  type        = string
+  description = "TFSec Version"
+  default     = "1.21.2"
+}
+
+variable "tflint_version" {
+  type        = string
+  description = "TFLint Version"
+  default     = "0.37.0"
+}
+
+variable "packer_version" {
+  type        = string
+  description = "Packer Version"
+  default     = "1.8.1"
+}
+
+variable "helm_version" {
+  type        = string
+  description = "Helm Version"
+  default     = "3.9.0"
+}
+
+variable "kubectl_version" {
+  type        = string
+  description = "Kubectl Version"
+  default     = "1.24.0"
+}
+
+#############################
 # Key Pairs
 #############################
 

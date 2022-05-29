@@ -4,8 +4,54 @@
   become: true
 
   roles:
-    - role: geerlingguy.helm
-      helm_arch: arm64
-
     - role: geerlingguy.docker_arm
       docker_install_compose: false
+
+  tasks:
+    - name: Download & Install Terraform {{terraform_version}}
+      ansible.builtin.unarchive:
+        src: "https://releases.hashicorp.com/terraform/{{terraform_version}}/terraform_{{terraform_version}}_linux_arm64.zip"
+        dest: /usr/local/bin
+        mode: a+x
+        remote_src: yes
+
+    - name: Download & Install Terraform Docs {{tfdocs_version}}
+      ansible.builtin.unarchive:
+        src: "https://github.com/terraform-docs/terraform-docs/releases/download/v{{tfdocs_version}}/terraform-docs-v{{tfdocs_version}}-linux-arm64.tar.gz"
+        dest: /usr/local/bin
+        mode: a+x
+        remote_src: yes
+
+    - name: Download & Install TFSec {{tfsec_version}}
+      ansible.builtin.unarchive:
+        src: "https://github.com/aquasecurity/tfsec/releases/download/v{{tfsec_version}}/tfsec_{{tfsec_version}}_linux_arm64.tar.gz"
+        dest: /usr/local/bin
+        mode: a+x
+        remote_src: yes
+
+    - name: Download & Install TFLint {{tflint_version}}
+      ansible.builtin.unarchive:
+        src: "https://github.com/terraform-linters/tflint/releases/download/v{{tflint_version}}/tflint_linux_arm64.zip"
+        dest: /usr/local/bin
+        mode: a+x
+        remote_src: yes
+
+    - name: Download & Install Packer {{packer_version}}
+      ansible.builtin.unarchive:
+        src: "https://releases.hashicorp.com/packer/{{packer_version}}/packer_{{packer_version}}_linux_arm64.zip"
+        dest: /usr/local/bin
+        mode: a+x
+        remote_src: yes
+
+    - name: Download & Install Helm {{helm_version}}
+      ansible.builtin.unarchive:
+        src: "https://get.helm.sh/helm-v{{helm_version}}-linux-arm64.tar.gz"
+        dest: /usr/local/bin
+        mode: a+x
+        remote_src: yes
+
+    - name: Download & Install Kubectl {{kubectl_version}}
+      get_url:
+        url: "https://storage.googleapis.com/kubernetes-release/release/v{{kubectl_version}}/bin/linux/arm64/kubectl"
+        dest: /usr/local/bin
+        mode: a+x

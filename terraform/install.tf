@@ -29,6 +29,13 @@ resource "local_file" "ansible_variables" {
     cf_tunnel_name       = var.cf_zero_trust_enabled ? local.cf_tunnel_name : ""
     cf_tunnel_secret     = var.cf_zero_trust_enabled ? local.cf_argo_secret : ""
     cf_zone              = var.cf_zero_trust_enabled ? local.cf_cname : ""
+    terraform_version    = var.terraform_version
+    tfdocs_version       = var.tfdocs_version
+    tfsec_version        = var.tfsec_version
+    tflint_version       = var.tflint_version
+    packer_version       = var.packer_version
+    helm_version         = var.helm_version
+    kubectl_version      = var.kubectl_version
   })
   filename = "${path.root}/../ansible/group_vars/server/all.yml"
 }
