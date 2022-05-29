@@ -108,7 +108,7 @@ jobs:
       - name: Terraform Docs
         uses: terraform-docs/gh-actions@f6d59f89a280fa0a3febf55ef68f146784b20ba0 # tag=v1.0.0
         with:
-          working-dir: .
+          working-dir: ./terraform
           output-file: USAGE.md
           output-method: inject
           git-push: "true"
