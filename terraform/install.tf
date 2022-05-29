@@ -24,11 +24,11 @@ resource "local_file" "ansible_variables" {
     volume_chap_password = oci_core_volume_attachment.volume_attachment.chap_secret
     volume_device_name   = var.block_volume_device_name
     vscode_version       = var.vscode_version
-    cf_account_id        = var.cf_account_id
-    cf_tunnel_id         = cloudflare_argo_tunnel.cf_tunnel[0].id != null ? cloudflare_argo_tunnel.cf_tunnel[0].id : ""
-    cf_tunnel_name       = local.cf_tunnel_name
-    cf_tunnel_secret     = local.cf_argo_secret
-    cf_zone              = local.cf_cname != null ? local.cf_cname : ""
+    cf_account_id        = var.cf_zero_trust_enabled ? var.cf_account_id : ""
+    cf_tunnel_id         = var.cf_zero_trust_enabled ? cloudflare_argo_tunnel.cf_tunnel[0].id : ""
+    cf_tunnel_name       = var.cf_zero_trust_enabled ? local.cf_tunnel_name : ""
+    cf_tunnel_secret     = var.cf_zero_trust_enabled ? local.cf_argo_secret : ""
+    cf_zone              = var.cf_zero_trust_enabled ? local.cf_cname : ""
   })
   filename = "${path.root}/../ansible/group_vars/server/all.yml"
 }
