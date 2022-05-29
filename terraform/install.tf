@@ -25,7 +25,7 @@ resource "local_file" "ansible_variables" {
     volume_device_name   = var.block_volume_device_name
     vscode_version       = var.vscode_version
     cf_account_id        = var.cf_account_id
-    cf_tunnel_id         = cloudflare_argo_tunnel.cf_tunnel.id != null ? cloudflare_argo_tunnel.cf_tunnel.id : ""
+    cf_tunnel_id         = cloudflare_argo_tunnel.cf_tunnel[0].id != null ? cloudflare_argo_tunnel.cf_tunnel[0].id : ""
     cf_tunnel_name       = local.cf_tunnel_name
     cf_tunnel_secret     = local.cf_argo_secret
     cf_zone              = local.cf_cname != null ? local.cf_cname : ""
