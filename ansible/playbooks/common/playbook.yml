@@ -5,12 +5,9 @@
   gather_facts: false
 
   tasks:
-    - name: Install OpenJDK
+    - name: Install common packages (unzip, openjdk)
       apt:
-        name: openjdk-16-jdk
-        state: present
-
-    - name: Install OpenJDK JRE
-      apt:
-        name: openjdk-16-jre-headless
-        state: present
+        pkg:
+          - unzip
+          - openjdk-16-jdk
+          - openjdk-16-jre-headless
