@@ -61,6 +61,9 @@ resource "null_resource" "common_playbook" {
 
 # Install Cloudflare agent
 resource "null_resource" "cloudflare_playbook" {
+
+  count = var.cf_zero_trust_enabled ? 1 : 0
+
   depends_on = [
     null_resource.mount_data_volume,
     null_resource.common_playbook,
