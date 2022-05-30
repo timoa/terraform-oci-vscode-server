@@ -47,8 +47,14 @@
     - name: Increase the UDP Receive Buffer Size needed for the QUIC protocol
       shell: sysctl -w net.core.rmem_max=2500000
 
+    - name: Check if the Cloudflare Access Tunnel service already exists
+      stat:
+        path: /etc/systemd/system/cloudflared.service
+      register: cloudflared_service
+
     - name: Install the Cloudflare Access tunnel
       shell: "cloudflared service install"
+      when: cloudflared_service.stat.exists == False
 
     - name: Enable the Cloudflare Agent service
       ansible.builtin.systemd:
@@ -56,3 +62,11 @@
         state: started
         enabled: yes
         masked: no
+      when: cloudflared_service.stat.exists == False
+
+    - name: Restart the Cloudflare Agent service
+      ansible.builtin.systemd:
+        name: "cloudflared"
+        state: restarted
+        daemon_reload: yes
+      when: cloudflared_service.stat.exists
