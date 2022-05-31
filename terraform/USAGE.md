@@ -8,7 +8,7 @@
 | <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | 2.2.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | 2.2.3 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.1.1 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 4.72.0 |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 4.76.0 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | 3.4.0 |
 
 ## Modules
@@ -34,23 +34,23 @@ No modules.
 | [null_resource.mount_data_volume](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
 | [null_resource.private_key_chmod](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
 | [null_resource.public_key_chmod](https://registry.terraform.io/providers/hashicorp/null/3.1.1/docs/resources/resource) | resource |
-| [oci_core_default_route_table.default_rt](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_default_route_table) | resource |
-| [oci_core_instance.instance](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_instance) | resource |
-| [oci_core_internet_gateway.igw](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_internet_gateway) | resource |
-| [oci_core_security_list.security_list_ssh](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_security_list) | resource |
-| [oci_core_security_list.security_list_vscode](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_security_list) | resource |
-| [oci_core_subnet.subnet](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_subnet) | resource |
-| [oci_core_vcn.vcn](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_vcn) | resource |
-| [oci_core_volume.volume](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_volume) | resource |
-| [oci_core_volume_attachment.volume_attachment](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_volume_attachment) | resource |
-| [oci_core_volume_backup_policy_assignment.policy](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/resources/core_volume_backup_policy_assignment) | resource |
+| [oci_core_default_route_table.default_rt](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_default_route_table) | resource |
+| [oci_core_instance.instance](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_instance) | resource |
+| [oci_core_internet_gateway.igw](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_internet_gateway) | resource |
+| [oci_core_security_list.security_list_ssh](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_security_list) | resource |
+| [oci_core_security_list.security_list_vscode](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_security_list) | resource |
+| [oci_core_subnet.subnet](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_subnet) | resource |
+| [oci_core_vcn.vcn](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_vcn) | resource |
+| [oci_core_volume.volume](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_volume) | resource |
+| [oci_core_volume_attachment.volume_attachment](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_volume_attachment) | resource |
+| [oci_core_volume_backup_policy_assignment.policy](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_volume_backup_policy_assignment) | resource |
 | [random_id.argo_secret](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 | [tls_private_key.default](https://registry.terraform.io/providers/hashicorp/tls/3.4.0/docs/resources/private_key) | resource |
 | [cloudflare_zone.cf_zone](https://registry.terraform.io/providers/cloudflare/cloudflare/3.15.0/docs/data-sources/zone) | data source |
 | [cloudinit_config.cloudinit](https://registry.terraform.io/providers/hashicorp/cloudinit/2.2.0/docs/data-sources/config) | data source |
-| [oci_core_images.ubuntu_20_04_aarch64](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/data-sources/core_images) | data source |
-| [oci_core_volume_backup_policies.predefined_volume_backup_policies](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/data-sources/core_volume_backup_policies) | data source |
-| [oci_identity_availability_domains.ads](https://registry.terraform.io/providers/oracle/oci/4.72.0/docs/data-sources/identity_availability_domains) | data source |
+| [oci_core_images.ubuntu_20_04_aarch64](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/data-sources/core_images) | data source |
+| [oci_core_volume_backup_policies.predefined_volume_backup_policies](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/data-sources/core_volume_backup_policies) | data source |
+| [oci_identity_availability_domains.ads](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/data-sources/identity_availability_domains) | data source |
 
 ## Inputs
 
