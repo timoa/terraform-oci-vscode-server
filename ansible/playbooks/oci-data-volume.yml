@@ -28,9 +28,14 @@
     - name: Set the password for the OCI iSCSI Node
       shell: "iscsiadm -m node -T {{volume_iqn}} -p {{volume_ipv4}}:{{volume_port}} -o update -n node.session.auth.password -v {{volume_chap_password}}"
 
+    - name: Check if there is already an iSCSI session already exists
+      shell: "iscsiadm -m session"
+      register: iscsi_session_exists
+      ignore_errors: true
+
     - name: Attach the OCI iSCSI Node to the instance
       shell: "iscsiadm -m node -T {{volume_iqn}} -p {{volume_ipv4}}:{{volume_port}} -l"
-      ignore_errors: true # ignore errors if the session already exists
+      when: "iscsi_session_exists.stderr is search('iscsiadm: No active sessions.')"
 
     - name: Check if the volume is formated. if not it will be formated with ext4
       community.general.filesystem:
@@ -48,4 +53,6 @@
       shell: "grep -q ^LABEL=instance-data /etc/fstab || echo 'LABEL=instance-data /data ext4 defaults' | tee -a /etc/fstab >/dev/null"
 
     - name: Mount the volume on /data
-      shell: "grep -q \"^$(readlink -f {{volume_device_name}}) /data \" /proc/mounts || mount /data"
+      command: mount -a
+      args:
+        warn: no
