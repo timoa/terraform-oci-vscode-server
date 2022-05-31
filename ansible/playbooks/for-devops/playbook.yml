@@ -8,6 +8,11 @@
       docker_install_compose: false
 
   tasks:
+    - name: Install Checkov
+      pip:
+        name:
+          - checkov
+
     - name: Download & Install Terraform {{terraform_version}}
       ansible.builtin.unarchive:
         src: "https://releases.hashicorp.com/terraform/{{terraform_version}}/terraform_{{terraform_version}}_linux_arm64.zip"
