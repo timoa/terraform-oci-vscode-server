@@ -48,7 +48,13 @@ Currently, Oracle Cloud Free tier provides great performance (4vCPU ARM based, 2
 - [x] Configure Cloudflare Access (ZeroTrust) to secure the instance access
 - [ ] Encrypt the block volume with a KMS key
 - [ ] Write the documentation for the manual steps (Oracle Cloud Infrastructure & Cloudflare accounts, etc.)
-- [ ] Explain how to avoid the "Out of Host capacity" error
+- [ ] Explain how to avoid the "Out of Host capacity" error on Oracle Cloud Infrastructure
+
+## Known issues
+
+- [ ] Inconsistent mounting of the /data volume. The fstab config is present and the iSCSI device is mounted, but the volume is not mounted. Need to investigate why.
+- [ ] Optional dependencies like Cloudflare or the DevOps packages are run in parallel and can fail the install (apt lock file present). The sequence of the optional dependencies installation needs to be changed.
+- [ ] During the first run of the Ansible playbooks, the terminal become interactive and ask to add the SSH host to the know host file and wait for an answer. Need to add an Ansible command to accept by default an not stop the provionning of the instance.
 
 [github-badge]: https://github.com/timoa/terraform-oci-vscode-server/workflows/Terraform/badge.svg
 [github-url]: https://github.com/timoa/terraform-oci-vscode-server/actions?query=workflow%3ATerraform
