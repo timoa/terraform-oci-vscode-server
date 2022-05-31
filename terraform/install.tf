@@ -51,9 +51,9 @@ resource "null_resource" "common_playbook" {
   ]
 
   triggers = {
-    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
-    playbook_id = filemd5("${path.root}/../ansible/playbooks/common/playbook.yml") # Trigger on playbook changes
-    run_id = filemd5("${path.root}/../ansible/playbooks/common/run.sh") # Trigger on run script changes
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id                  # Trigger on volume attachment changes
+    playbook_id          = filemd5("${path.root}/../ansible/playbooks/common/playbook.yml") # Trigger on playbook changes
+    run_id               = filemd5("${path.root}/../ansible/playbooks/common/run.sh")       # Trigger on run script changes
   }
 
   provisioner "local-exec" {
@@ -72,9 +72,9 @@ resource "null_resource" "cloudflare_playbook" {
   ]
 
   triggers = {
-    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
-    playbook_id = filemd5("${path.root}/../ansible/playbooks/cloudflare/playbook.yml") # Trigger on playbook changes
-    run_id = filemd5("${path.root}/../ansible/playbooks/cloudflare/run.sh") # Trigger on run script changes
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id                      # Trigger on volume attachment changes
+    playbook_id          = filemd5("${path.root}/../ansible/playbooks/cloudflare/playbook.yml") # Trigger on playbook changes
+    run_id               = filemd5("${path.root}/../ansible/playbooks/cloudflare/run.sh")       # Trigger on run script changes
   }
 
   provisioner "local-exec" {
@@ -93,9 +93,9 @@ resource "null_resource" "devops_roles" {
   ]
 
   triggers = {
-    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id # Trigger on volume attachment changes
-    playbook_id = filemd5("${path.root}/../ansible/playbooks/for-devops/playbook.yml") # Trigger on playbook changes
-    run_id = filemd5("${path.root}/../ansible/playbooks/for-devops/run.sh") # Trigger on run script changes
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id                      # Trigger on volume attachment changes
+    playbook_id          = filemd5("${path.root}/../ansible/playbooks/for-devops/playbook.yml") # Trigger on playbook changes
+    run_id               = filemd5("${path.root}/../ansible/playbooks/for-devops/run.sh")       # Trigger on run script changes
   }
 
   provisioner "local-exec" {
