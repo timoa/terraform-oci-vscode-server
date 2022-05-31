@@ -5,9 +5,16 @@
   gather_facts: false
 
   tasks:
-    - name: Install common packages (unzip, openjdk)
+    - name: Install common packages (unzip, pip, openjdk)
       apt:
         pkg:
           - unzip
+          - python3-pip
           - openjdk-16-jdk
           - openjdk-16-jre-headless
+
+    - name: Install Ansible & pre-commit
+      pip:
+        name:
+          - ansible
+          - pre-commit
