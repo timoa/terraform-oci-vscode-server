@@ -17,6 +17,10 @@ resource "oci_core_volume" "volume" {
 
   # Labels
   freeform_tags = local.common_labels
+
+  lifecycle {
+    prevent_destroy = true # Avoid to destroy the volume by mistake
+  }
 }
 
 # Volume attachment
