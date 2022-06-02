@@ -4,7 +4,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 3.15.0 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 3.16.0 |
 | <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | 2.2.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | 2.2.3 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.1.1 |
@@ -19,11 +19,11 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [cloudflare_access_application.cf_application](https://registry.terraform.io/providers/cloudflare/cloudflare/3.15.0/docs/resources/access_application) | resource |
-| [cloudflare_access_policy.cf_allow_policy](https://registry.terraform.io/providers/cloudflare/cloudflare/3.15.0/docs/resources/access_policy) | resource |
-| [cloudflare_argo_tunnel.cf_tunnel](https://registry.terraform.io/providers/cloudflare/cloudflare/3.15.0/docs/resources/argo_tunnel) | resource |
-| [cloudflare_record.cf_tunnel_cname](https://registry.terraform.io/providers/cloudflare/cloudflare/3.15.0/docs/resources/record) | resource |
-| [cloudflare_tunnel_route.cf_tunnel_route](https://registry.terraform.io/providers/cloudflare/cloudflare/3.15.0/docs/resources/tunnel_route) | resource |
+| [cloudflare_access_application.cf_application](https://registry.terraform.io/providers/cloudflare/cloudflare/3.16.0/docs/resources/access_application) | resource |
+| [cloudflare_access_policy.cf_allow_policy](https://registry.terraform.io/providers/cloudflare/cloudflare/3.16.0/docs/resources/access_policy) | resource |
+| [cloudflare_argo_tunnel.cf_tunnel](https://registry.terraform.io/providers/cloudflare/cloudflare/3.16.0/docs/resources/argo_tunnel) | resource |
+| [cloudflare_record.cf_tunnel_cname](https://registry.terraform.io/providers/cloudflare/cloudflare/3.16.0/docs/resources/record) | resource |
+| [cloudflare_tunnel_route.cf_tunnel_route](https://registry.terraform.io/providers/cloudflare/cloudflare/3.16.0/docs/resources/tunnel_route) | resource |
 | [local_file.ansible_hosts](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
 | [local_file.ansible_variables](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
 | [local_file.private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
@@ -46,7 +46,7 @@ No modules.
 | [oci_core_volume_backup_policy_assignment.policy](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_volume_backup_policy_assignment) | resource |
 | [random_id.argo_secret](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 | [tls_private_key.default](https://registry.terraform.io/providers/hashicorp/tls/3.4.0/docs/resources/private_key) | resource |
-| [cloudflare_zone.cf_zone](https://registry.terraform.io/providers/cloudflare/cloudflare/3.15.0/docs/data-sources/zone) | data source |
+| [cloudflare_zone.cf_zone](https://registry.terraform.io/providers/cloudflare/cloudflare/3.16.0/docs/data-sources/zone) | data source |
 | [cloudinit_config.cloudinit](https://registry.terraform.io/providers/hashicorp/cloudinit/2.2.0/docs/data-sources/config) | data source |
 | [oci_core_images.ubuntu_20_04_aarch64](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/data-sources/core_images) | data source |
 | [oci_core_volume_backup_policies.predefined_volume_backup_policies](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/data-sources/core_volume_backup_policies) | data source |
