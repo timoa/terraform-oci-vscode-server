@@ -50,7 +50,7 @@
       shell: "sed  -i -e '/^[\\/][^ \t]*[ \t]*\\/data[ \t]/d' /etc/fstab"
 
     - name: Add the entry to /etc/fstab
-      shell: "grep -q ^LABEL=instance-data /etc/fstab || echo 'LABEL=instance-data /data ext4 defaults' | tee -a /etc/fstab >/dev/null"
+      shell: "grep -q ^LABEL=instance-data /etc/fstab || echo 'LABEL=instance-data /data ext4 defaults 0 0' | tee -a /etc/fstab >/dev/null"
 
     - name: Mount the volume on /data
       command: mount -a
