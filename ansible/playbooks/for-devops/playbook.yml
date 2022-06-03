@@ -5,7 +5,6 @@
 
   roles:
     - role: geerlingguy.docker_arm
-      docker_install_compose: false
 
   tasks:
     - name: Install Checkov
