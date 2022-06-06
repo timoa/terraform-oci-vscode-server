@@ -3,7 +3,7 @@
 BASEDIR=$(dirname $0)
 
 # Install the Ansible roles
-# ansible-galaxy install -r $BASEDIR/roles.yml
+ansible-galaxy install -r $BASEDIR/roles.yml
 
 # Install updates
 ansible-playbook -i $BASEDIR/../../hosts.yml $BASEDIR/os-updates.yml
