@@ -3,6 +3,19 @@
 # timezone: set the timezone
 timezone: UTC
 
+# Packages : Update apt database on first boot (run 'apt-get update')
+package_update: true
+
+# Packages : Upgrade the instance on first boot (run 'apt-get dist-upgrade')
+package_upgrade: true
+
+# Install Ansible on first boot
+packages:
+  - python3-pip
+
+runcmd:
+  - pip install ansible
+
 final_message: "System boot (via cloud-init) is COMPLETE, after $UPTIME seconds. Finished at $TIMESTAMP"
 
 output:
