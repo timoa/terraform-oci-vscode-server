@@ -3,9 +3,6 @@
 - hosts: server
   become: true
 
-  roles:
-    - role: geerlingguy.docker_arm
-
   tasks:
     - name: Install Checkov
       pip:
@@ -47,9 +44,16 @@
         mode: a+x
         remote_src: yes
 
-    - name: Download & Install Helm {{helm_version}}
+    - name: Download Helm {{helm_version}}
       ansible.builtin.unarchive:
         src: "https://get.helm.sh/helm-v{{helm_version}}-linux-arm64.tar.gz"
+        dest: /tmp
+        mode: a+x
+        remote_src: yes
+
+    - name: Install Helm {{helm_version}}
+      ansible.builtin.copy:
+        src: "/tmp/linux-arm64/helm"
         dest: /usr/local/bin
         mode: a+x
         remote_src: yes
