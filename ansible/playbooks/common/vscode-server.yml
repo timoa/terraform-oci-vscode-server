@@ -13,6 +13,7 @@
     - name: Install VS Code Server
       apt:
         deb: "/tmp/code-server_{{vscode_version}}_arm64.deb"
+        lock_timeout: 600
 
     - name: Enable the VSCode Server service
       ansible.builtin.systemd:
