@@ -1,3 +1,7 @@
+locals {
+  install_devops_deps = var.install_devops_deps ? "enabled" : "disabled"
+}
+
 #############################
 # Configure Ansible
 #############################
@@ -47,18 +51,33 @@ resource "local_file" "ansible_variables" {
 # Install Common roles
 resource "null_resource" "common_playbook" {
   depends_on = [
-    null_resource.mount_data_volume
+    oci_core_instance.instance,
+    oci_core_volume_attachment.volume_attachment,
   ]
 
   triggers = {
-    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id                  # Trigger on volume attachment changes
-    playbook_id          = filemd5("${path.root}/../ansible/playbooks/common/playbook.yml") # Trigger on playbook changes
-    run_id               = filemd5("${path.root}/../ansible/playbooks/common/run.sh")       # Trigger on run script changes
+    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id                      # Trigger on volume attachment changes
+    common_playbook_id   = filemd5("${path.root}/../ansible/playbooks/common/playbook.yml")     # Trigger on playbook changes
+    common_run_id        = filemd5("${path.root}/../ansible/playbooks/common/run.sh")           # Trigger on run script changes
+    devops_playbook_id   = filemd5("${path.root}/../ansible/playbooks/for-devops/playbook.yml") # Trigger on playbook changes
+    devops_run_id        = filemd5("${path.root}/../ansible/playbooks/for-devops/run.sh")       # Trigger on run script changes
   }
 
+  # Attach the volume and mount it on the /data directory
+  provisioner "local-exec" {
+    command = "ansible-playbook -i ${path.root}/../ansible/hosts.yml ${path.root}/../ansible/playbooks/oci-data-volume.yml"
+  }
+
+  # Install the Common packages
   provisioner "local-exec" {
     command = "bash ${path.root}/../ansible/playbooks/common/run.sh"
   }
+
+  # Install the DevOps packages (if enabled)
+  provisioner "local-exec" {
+    command = "bash ${path.root}/../ansible/playbooks/for-devops/run.sh ${local.install_devops_deps}"
+  }
+
 }
 
 # Install Cloudflare agent
@@ -67,7 +86,7 @@ resource "null_resource" "cloudflare_playbook" {
   count = var.cf_zero_trust_enabled ? 1 : 0
 
   depends_on = [
-    null_resource.mount_data_volume,
+    cloudflare_tunnel_route.cf_tunnel_route,
     null_resource.common_playbook,
   ]
 
@@ -79,26 +98,5 @@ resource "null_resource" "cloudflare_playbook" {
 
   provisioner "local-exec" {
     command = "bash ${path.root}/../ansible/playbooks/cloudflare/run.sh"
-  }
-}
-
-# Install DevOps roles (if enabled)
-resource "null_resource" "devops_roles" {
-
-  count = var.install_devops_deps ? 1 : 0
-
-  depends_on = [
-    null_resource.mount_data_volume,
-    null_resource.common_playbook,
-  ]
-
-  triggers = {
-    volume_attachment_id = oci_core_volume_attachment.volume_attachment.id                      # Trigger on volume attachment changes
-    playbook_id          = filemd5("${path.root}/../ansible/playbooks/for-devops/playbook.yml") # Trigger on playbook changes
-    run_id               = filemd5("${path.root}/../ansible/playbooks/for-devops/run.sh")       # Trigger on run script changes
-  }
-
-  provisioner "local-exec" {
-    command = "bash ${path.root}/../ansible/playbooks/for-devops/run.sh"
   }
 }
