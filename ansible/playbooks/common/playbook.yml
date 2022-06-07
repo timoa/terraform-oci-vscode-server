@@ -2,9 +2,6 @@
 # This playbook install the common packages
 - hosts: server
 
-  roles:
-    - role: geerlingguy.docker_arm
-
   tasks:
     - name: Install common packages (unzip, pip, openjdk)
       become: true
