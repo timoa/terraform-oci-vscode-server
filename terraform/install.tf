@@ -40,6 +40,7 @@ resource "local_file" "ansible_variables" {
     packer_version       = var.packer_version
     helm_version         = var.helm_version
     kubectl_version      = var.kubectl_version
+    hadolint_version     = var.hadolint_version
   })
   filename = "${path.root}/../ansible/group_vars/server/all.yml"
 }

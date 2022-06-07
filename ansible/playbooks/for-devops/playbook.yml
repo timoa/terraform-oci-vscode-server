@@ -63,3 +63,9 @@
         url: "https://storage.googleapis.com/kubernetes-release/release/v{{kubectl_version}}/bin/linux/arm64/kubectl"
         dest: /usr/local/bin
         mode: a+x
+
+    - name: Download & Install Hadolint {{hadolint_version}}
+      get_url:
+        url:  "https://github.com/hadolint/hadolint/releases/download/v{{hadolint_version}}/hadolint-Linux-arm64"
+        dest: /usr/local/bin/hadolint
+        mode: a+x

@@ -243,6 +243,12 @@ variable "kubectl_version" {
   default     = "1.24.0"
 }
 
+variable "hadolint_version" {
+  type        = string
+  description = "Hadolint Version"
+  default     = "2.10.0"
+}
+
 #############################
 # Key Pairs
 #############################
