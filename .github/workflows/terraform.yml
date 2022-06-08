@@ -108,6 +108,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        with:
+          ref: 'main' # Force checkout of main branch to avoid caching from previous jobs
 
       - name: Terraform Docs
         uses: terraform-docs/gh-actions@f6d59f89a280fa0a3febf55ef68f146784b20ba0 # tag=v1.0.0
