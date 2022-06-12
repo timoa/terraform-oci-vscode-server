@@ -19,7 +19,7 @@ Deploy a free and easy maintenable VSCode Server.
 
 Currently, Oracle Cloud Free tier provides great performance (4vCPU ARM based, 24GB of RAM, and 200GB of storage), but:
 
-* The instance are preemptible, which means that they can be terminated at any time
+* The instances are preemptible, which means that they can be terminated at any time
 * We can't create custom images (with Packer for ex.), so we have to install VSCode Server and other dependencies at boot time
 * Can be hard to find an OCI datacenter that still has available capacity
 
