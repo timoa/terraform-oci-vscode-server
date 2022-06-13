@@ -23,6 +23,12 @@ Currently, Oracle Cloud Free tier provides great performance (4vCPU ARM based, 2
 * We can't create custom images (with Packer for ex.), so we have to install VSCode Server and other dependencies at boot time
 * Can be hard to find an OCI datacenter that still has available capacity
 
+### Use cases
+
+* Code from any computer with your VSCode and your tools without any install
+* Code from your tablet or slow computer with a remove VSCode Server
+* Onboard a new team member without spending the first days configuring VSCode with pre-configured tools
+
 ## How to start
 
 ### Create an OCI account
