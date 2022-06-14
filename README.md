@@ -39,6 +39,10 @@ Currently, Oracle Cloud Free tier provides great performance (4vCPU ARM based, 2
 
 ### Access to VSCode Server from your browser
 
+### Create a Cloudflare acount (optional)
+
+### COnfigure the Cloudflare Zero Trust (optional)
+
 ## TODO
 
 * [x] Create the custom VCN (VPC)
