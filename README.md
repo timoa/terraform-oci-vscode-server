@@ -26,12 +26,21 @@ Currently, Oracle Cloud Free tier provides great performance (4vCPU ARM based, 2
 ### Use cases
 
 * Code from any computer with your VSCode and your tools without any install
-* Code from your tablet or slow computer with a remove VSCode Server
-* Onboard a new team member without spending the first days configuring VSCode with pre-configured tools
+* Code from your tablet or slow computer with a remote VSCode Server
+* Onboard a new team member without spending the first days configuring VSCode and other tools on their computer
 
 ## How to start
 
 ### Create an OCI account
+
+Signup for a free OCI account [here][oci-signup-url].
+
+If you're new to Oracle Cloud Infrastructure, you need to the following:
+
+* **Tenant**: kind of an account, like a company or an organization
+* **Compartment**: it's a isolated area to deploy a project or an environment (similar a GCP project).
+
+I recommend to create a new compartment for deploying VSCode Server, that way you will be able to use share free tier resource for a different project or rebuild from scratch a new VSCode Server instead of using the default compartment.
 
 ### Configure the OCI authentication
 
@@ -41,7 +50,7 @@ Currently, Oracle Cloud Free tier provides great performance (4vCPU ARM based, 2
 
 ### Create a Cloudflare acount (optional)
 
-### COnfigure the Cloudflare Zero Trust (optional)
+### Configure the Cloudflare Zero Trust (optional)
 
 ## TODO
 
@@ -73,6 +82,8 @@ Currently, Oracle Cloud Free tier provides great performance (4vCPU ARM based, 2
 [release-url]: https://github.com/timoa/terraform-oci-vscode-server/releases/latest
 [license-badge]: https://img.shields.io/github/license/timoa/terraform-oci-vscode-server.svg
 [license-url]: https://github.com/timoa/terraform-oci-vscode-server/blob/main/LICENSE
+
+[oci-signup-url]: https://signup.cloud.oracle.com
 
 [i11]: https://github.com/timoa/terraform-oci-vscode-server/issues/11
 [i11]: https://github.com/timoa/terraform-oci-vscode-server/issues/12
