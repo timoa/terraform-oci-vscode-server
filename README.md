@@ -65,6 +65,7 @@ I recommend to create a new compartment for deploying VSCode Server, that way yo
 * [x] Restrict SSH and VS Code port access
 * [x] Configure backups of the block volume only
 * [x] Configure Cloudflare Access (ZeroTrust) to secure the instance access
+* [ ] Install dependencies/tools on the data volume to speed up the provisioning
 * [ ] Create dynamically an Ansible Vault to save the sensitive data used by Ansible
 * [ ] Encrypt the block volume with a KMS key
 * [ ] Write the documentation for the manual steps (Oracle Cloud Infrastructure & Cloudflare accounts, etc.)
