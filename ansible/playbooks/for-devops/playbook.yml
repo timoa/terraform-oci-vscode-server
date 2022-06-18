@@ -4,68 +4,134 @@
   become: true
 
   tasks:
+    # Checkov
     - name: Install Checkov
       pip:
         name:
           - checkov
 
-    - name: Download & Install Terraform {{terraform_version}}
-      ansible.builtin.unarchive:
-        src: "https://releases.hashicorp.com/terraform/{{terraform_version}}/terraform_{{terraform_version}}_linux_arm64.zip"
-        dest: /usr/local/bin
-        mode: a+x
-        remote_src: yes
+    # HashiCorp Terraform
+    - name: Download and install Terraform {{terraform_version}}
+      block:
+        - name: Download Terraform {{terraform_version}} on /data/bin
+          ansible.builtin.unarchive:
+            src: "https://releases.hashicorp.com/terraform/{{terraform_version}}/terraform_{{terraform_version}}_linux_arm64.zip"
+            dest: /data/bin
+            mode: a+x
+            remote_src: yes
 
-    - name: Download & Install Terraform Docs {{tfdocs_version}}
-      ansible.builtin.unarchive:
-        src: "https://github.com/terraform-docs/terraform-docs/releases/download/v{{tfdocs_version}}/terraform-docs-v{{tfdocs_version}}-linux-arm64.tar.gz"
-        dest: /usr/local/bin
-        mode: a+x
-        remote_src: yes
+        - name: Install Terraform {{terraform_version}}
+          ansible.builtin.file:
+            src: /data/bin/terraform
+            dest: "/usr/local/bin/terraform"
+            state: link
 
-    - name: Download & Install TFSec {{tfsec_version}}
-      ansible.builtin.unarchive:
-        src: "https://github.com/aquasecurity/tfsec/releases/download/v{{tfsec_version}}/tfsec_{{tfsec_version}}_linux_arm64.tar.gz"
-        dest: /usr/local/bin
-        mode: a+x
-        remote_src: yes
+    # Terraform Docs
+    - name: Download and install Terraform Docs {{tfdocs_version}}
+      block:
+        - name: Download Terraform Docs {{tfdocs_version}} on /data/bin
+          ansible.builtin.unarchive:
+            src: "https://github.com/terraform-docs/terraform-docs/releases/download/v{{tfdocs_version}}/terraform-docs-v{{tfdocs_version}}-linux-arm64.tar.gz"
+            dest: /data/bin
+            mode: a+x
+            remote_src: yes
 
-    - name: Download & Install TFLint {{tflint_version}}
-      ansible.builtin.unarchive:
-        src: "https://github.com/terraform-linters/tflint/releases/download/v{{tflint_version}}/tflint_linux_arm64.zip"
-        dest: /usr/local/bin
-        mode: a+x
-        remote_src: yes
+        - name: Install Terraform Docs {{tfdocs_version}}
+          ansible.builtin.file:
+            src: /data/bin/terraform-docs
+            dest: "/usr/local/bin/terraform-docs"
+            state: link
 
-    - name: Download & Install Packer {{packer_version}}
-      ansible.builtin.unarchive:
-        src: "https://releases.hashicorp.com/packer/{{packer_version}}/packer_{{packer_version}}_linux_arm64.zip"
-        dest: /usr/local/bin
-        mode: a+x
-        remote_src: yes
+    # TFSec
+    - name: Download and install TFSec {{tfsec_version}}
+      block:
+        - name: Download TFSec {{tfsec_version}} on /data/bin
+          ansible.builtin.unarchive:
+            src: "https://github.com/aquasecurity/tfsec/releases/download/v{{tfsec_version}}/tfsec_{{tfsec_version}}_linux_arm64.tar.gz"
+            dest: /data/bin
+            mode: a+x
+            remote_src: yes
 
-    - name: Download Helm {{helm_version}}
-      ansible.builtin.unarchive:
-        src: "https://get.helm.sh/helm-v{{helm_version}}-linux-arm64.tar.gz"
-        dest: /tmp
-        mode: a+x
-        remote_src: yes
+        - name: Install TFSec {{tfsec_version}}
+          ansible.builtin.file:
+            src: /data/bin/tfsec
+            dest: "/usr/local/bin/tfsec"
+            state: link
 
-    - name: Install Helm {{helm_version}}
-      ansible.builtin.copy:
-        src: "/tmp/linux-arm64/helm"
-        dest: /usr/local/bin
-        mode: a+x
-        remote_src: yes
+    # TFLint
+    - name: Download and install TFLint {{tflint_version}}
+      block:
+        - name: Download TFLint {{tflint_version}} on /data/bin
+          ansible.builtin.unarchive:
+            src: "https://github.com/terraform-linters/tflint/releases/download/v{{tflint_version}}/tflint_linux_arm64.zip"
+            dest: /data/bin
+            mode: a+x
+            remote_src: yes
 
-    - name: Download & Install Kubectl {{kubectl_version}}
-      get_url:
-        url: "https://storage.googleapis.com/kubernetes-release/release/v{{kubectl_version}}/bin/linux/arm64/kubectl"
-        dest: /usr/local/bin
-        mode: a+x
+        - name: Install TFLint {{tflint_version}}
+          ansible.builtin.file:
+            src: /data/bin/tfsec
+            dest: "/usr/local/bin/tfsec"
+            state: link
 
-    - name: Download & Install Hadolint {{hadolint_version}}
-      get_url:
-        url:  "https://github.com/hadolint/hadolint/releases/download/v{{hadolint_version}}/hadolint-Linux-arm64"
-        dest: /usr/local/bin/hadolint
-        mode: a+x
+    # HashiCorp Packer
+    - name: Download and install Packer {{packer_version}}
+      block:
+        - name: Download Packer {{packer_version}} on /data/bin
+          ansible.builtin.unarchive:
+            src: "https://releases.hashicorp.com/packer/{{packer_version}}/packer_{{packer_version}}_linux_arm64.zip"
+            dest: /usr/local/bin
+            mode: a+x
+            remote_src: yes
+
+        - name: Install Packer {{packer_version}}
+          ansible.builtin.file:
+            src: /data/bin/packer
+            dest: "/usr/local/bin/packer"
+            state: link
+
+    # Helm
+    - name: Download and install Helm {{helm_version}}
+      block:
+        - name: Download Helm {{helm_version}} on /data/bin
+          ansible.builtin.unarchive:
+            src: "https://get.helm.sh/helm-v{{helm_version}}-linux-arm64.tar.gz"
+            dest: /data/bin/helm
+            mode: a+x
+            remote_src: yes
+
+        - name: Install Helm {{helm_version}}
+          ansible.builtin.file:
+            src: /data/bin/helm/linux-arm64/helm
+            dest: "/usr/local/bin/helm"
+            state: link
+
+    # Kubectl
+    - name: Download and install Kubectl {{kubectl_version}}
+      block:
+        - name: Download Kubectl {{kubectl_version}} on /data/bin
+          get_url:
+            url: "https://storage.googleapis.com/kubernetes-release/release/v{{kubectl_version}}/bin/linux/arm64/kubectl"
+            dest: /data/bin
+            mode: a+x
+
+        - name: Install Kubectl {{kubectl_version}}
+          ansible.builtin.file:
+            src: /data/bin/kubectl
+            dest: "/usr/local/bin/kubectl"
+            state: link
+
+    # Hadolint
+    - name: Download and install Hadolint {{hadolint_version}}
+      block:
+        - name: Download Hadolint {{hadolint_version}} on /data/bin
+          get_url:
+            url:  "https://github.com/hadolint/hadolint/releases/download/v{{hadolint_version}}/hadolint-Linux-arm64"
+            dest: /data/bin/hadolint
+            mode: a+x
+
+        - name: Install Hadolint {{hadolint_version}}
+          ansible.builtin.file:
+            src: /data/bin/hadolint
+            dest: "/usr/local/bin/hadolint"
+            state: link

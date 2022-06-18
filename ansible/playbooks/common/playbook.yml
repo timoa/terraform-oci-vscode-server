@@ -13,30 +13,40 @@
           - openjdk-16-jre-headless
         lock_timeout: 600
 
-    - name: "NodeJS: Create NVM directory"
+    - name: "Create /data/bin folder for tools"
       file:
-        path: /data/.nvm
+        path: /data/bin
         state: directory
         mode: 0755
         group: "{{user}}"
         owner: "{{user}}"
 
-    - name: "NodeJS: Download NVM and install it"
-      ansible.builtin.shell:
-        cmd: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | /bin/bash"
-      environment:
-        NVM_DIR: "/data/.nvm"
+    - name: Download and install Nodejs LTS via NVM
+      block:
+        - name: "NodeJS: Create NVM folder"
+          file:
+            path: /data/.nvm
+            state: directory
+            mode: 0755
+            group: "{{user}}"
+            owner: "{{user}}"
 
-    - name: "NodeJS: Create a symlink to {{ ansible_env.HOME }}/.nvm folder"
-      ansible.builtin.file:
-        src: /data/.nvm
-        dest: "{{ ansible_env.HOME }}/.nvm"
-        owner: "{{user}}"
-        group: "{{user}}"
-        state: link
+        - name: "NodeJS: Download NVM and install it"
+          ansible.builtin.shell:
+            cmd: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | /bin/bash"
+          environment:
+            NVM_DIR: "/data/.nvm"
 
-    - name: "NodeJS: Install latest Node LTS and common dependencies (Yarn, ESLint, etc)"
-      ansible.builtin.shell:
-        cmd: "source {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install --lts && npm install -g yarn eslint pm2"
-      args:
-        executable: /bin/bash
+        - name: "NodeJS: Create a symlink to {{ ansible_env.HOME }}/.nvm folder"
+          ansible.builtin.file:
+            src: /data/.nvm
+            dest: "{{ ansible_env.HOME }}/.nvm"
+            owner: "{{user}}"
+            group: "{{user}}"
+            state: link
+
+        - name: "NodeJS: Install latest Node LTS and common dependencies (Yarn, ESLint, etc)"
+          ansible.builtin.shell:
+            cmd: "source {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install --lts && npm install -g yarn eslint pm2"
+          args:
+            executable: /bin/bash
