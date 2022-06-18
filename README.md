@@ -50,6 +50,8 @@ I recommend to create a new compartment for deploying VSCode Server, that way yo
 
 ### Create a Cloudflare acount (optional)
 
+Signup for a free Cloudflare account [here][cloudflare-signup-url].
+
 ### Configure the Cloudflare Zero Trust (optional)
 
 ## TODO
@@ -85,6 +87,7 @@ I recommend to create a new compartment for deploying VSCode Server, that way yo
 [license-url]: https://github.com/timoa/terraform-oci-vscode-server/blob/main/LICENSE
 
 [oci-signup-url]: https://signup.cloud.oracle.com
+[cloudflare-signup-url]: https://dash.cloudflare.com/sign-up
 
 [i11]: https://github.com/timoa/terraform-oci-vscode-server/issues/11
 [i11]: https://github.com/timoa/terraform-oci-vscode-server/issues/12
