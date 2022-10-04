@@ -36,7 +36,7 @@ jobs:
             api.cloudflare.com:443
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@17d4c9b8043b238f6f35641cdd8433da1e6f3867 # tag=v2.0.0
@@ -77,7 +77,7 @@ jobs:
             pypi.org:443
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
 
       - name: Perform Scan
         uses: ShiftLeftSecurity/scan-action@master
@@ -107,7 +107,7 @@ jobs:
             github.com:443
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
         with:
           ref: 'main' # Force checkout of main branch to avoid caching from previous jobs
 
@@ -137,7 +137,7 @@ jobs:
           egress-policy: audit
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
         with:
           ref: 'main' # Force checkout of main branch to avoid caching from previous jobs
           persist-credentials: false
