@@ -1,0 +1,45 @@
+# D2 Settings
+direction: right
+
+# Title
+title: VSCode hosted on OCI with CloudFlare Access (Zero Trust) {
+  near: top-center
+  shape: text
+  style: {
+    font-size: 29
+    bold: true
+    underline: true
+  }
+}
+
+# OCI Infrastructure
+VCN: {
+  Subnet: {
+    Instance: {
+      Root Volume: {
+        cloudflared
+      }
+    }
+    Instance -> Persistent Volume (/data)
+  }
+  Internet Gateway <- _.VCN.Subnet.Instance.Root Volume.cloudflared: Tunnel
+}
+
+# Internet
+Internet.shape: cloud
+
+# CloudFlare Infrastructure
+CloudFlare: {
+  Access (Zero Trust)
+  _.VCN.Internet Gateway -> _.Internet -> _.CloudFlare.Access (Zero Trust)
+}
+
+# User
+User: {
+  shape: person
+}
+Browser: {
+  shape: page
+  _.User -> _.Browser
+  _.Browser -> _.Internet
+}

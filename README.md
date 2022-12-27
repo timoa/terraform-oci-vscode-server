@@ -4,6 +4,8 @@
 [![Build Status][github-badge]][github-url]
 [![License][license-badge]][license-url]
 
+![Diagram VSCode hosted on OCI with CloudFlare Access (zero trust)][diagram]
+
 Terraform project that deploys VSCode Server on Oracle Cloud Infrastructure using only the free tier.
 
 > WARNING: This project is currently under active development.
@@ -86,9 +88,11 @@ Signup for a free Cloudflare account [here][cloudflare-signup-url].
 [license-badge]: https://img.shields.io/github/license/timoa/terraform-oci-vscode-server.svg
 [license-url]: https://github.com/timoa/terraform-oci-vscode-server/blob/main/LICENSE
 
+[diagram]: /docs/diagram.svg
+
 [oci-signup-url]: https://signup.cloud.oracle.com
 [cloudflare-signup-url]: https://dash.cloudflare.com/sign-up
 
 [i11]: https://github.com/timoa/terraform-oci-vscode-server/issues/11
-[i11]: https://github.com/timoa/terraform-oci-vscode-server/issues/12
+[i12]: https://github.com/timoa/terraform-oci-vscode-server/issues/12
 [i13]: https://github.com/timoa/terraform-oci-vscode-server/issues/13
