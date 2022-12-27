@@ -20,7 +20,8 @@ VCN: {
         cloudflared
       }
     }
-    Instance -> Persistent Volume (/data)
+    Persitent Volume: Persistent Volume (/data)
+    Instance -> Persistent Volume
   }
   Internet Gateway <- _.VCN.Subnet.Instance.Root Volume.cloudflared: Tunnel
 }
@@ -30,8 +31,8 @@ Internet.shape: cloud
 
 # CloudFlare Infrastructure
 CloudFlare: {
-  Access (Zero Trust)
-  _.VCN.Internet Gateway -> _.Internet -> _.CloudFlare.Access (Zero Trust)
+  Access: Access (Zero Trust)
+  _.VCN.Internet Gateway -> _.Internet -> _.CloudFlare.Access
 }
 
 # User
@@ -41,5 +42,8 @@ User: {
 Browser: {
   shape: page
   _.User -> _.Browser
-  _.Browser -> _.Internet
+}
+CloudFlare WARP: {
+  label: CloudFlare WARP (client)
+  _.Browser -> _.CloudFlare WARP -> _.Internet
 }
