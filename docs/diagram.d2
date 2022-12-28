@@ -2,7 +2,7 @@
 direction: right
 
 # Title
-title: VSCode hosted on OCI with CloudFlare Access (Zero Trust) {
+title: VSCode Server hosted on OCI with Zero Trust Network (CloudFlare Access) {
   near: top-center
   shape: text
   style: {
@@ -17,22 +17,47 @@ VCN: {
   Subnet: {
     Instance: {
       Root Volume: {
-        cloudflared
+        VSCode Server {
+          shape: image
+          icon: ./icons/vscode.svg
+        }
+        cloudflared: {
+          shape: image
+          icon: ./icons/cloudflare.svg
+        }
+        VSCode Server <-> cloudflared
       }
     }
-    Persitent Volume: Persistent Volume (/data)
+    Persistent Volume: {
+      label: Persistent Volume (/data)
+      Tools: {
+        docker: {
+          shape: image
+          icon: ./icons/docker.svg
+          width: 50
+          height: 50
+        }
+        terraform: {
+          shape: image
+          icon: ./icons/terraform.svg
+          width: 50
+          height: 50
+        }
+      }
+      Config: {
+        shape: page
+      }
+    }
     Instance -> Persistent Volume
   }
-  Internet Gateway <- _.VCN.Subnet.Instance.Root Volume.cloudflared: Tunnel
+  Internet Gateway <-> _.VCN.Subnet.Instance.Root Volume.cloudflared: Tunnel
 }
 
-# Internet
-Internet.shape: cloud
-
 # CloudFlare Infrastructure
-CloudFlare: {
-  Access: Access (Zero Trust)
-  _.VCN.Internet Gateway -> _.Internet -> _.CloudFlare.Access
+CloudFlare Access: {
+  shape: image
+  icon: ./icons/cloudflare.svg
+  _.VCN.Internet Gateway <-> _.CloudFlare Access
 }
 
 # User
@@ -45,5 +70,7 @@ Browser: {
 }
 CloudFlare WARP: {
   label: CloudFlare WARP (client)
-  _.Browser -> _.CloudFlare WARP -> _.Internet
+  shape: image
+  icon: ./icons/cloudflare.svg
+  _.Browser -> _.CloudFlare WARP -> _.CloudFlare Access
 }
