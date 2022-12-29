@@ -7,5 +7,5 @@ provider "oci" {
 }
 
 provider "cloudflare" {
-
+  api_key = var.cf_api_key
 }

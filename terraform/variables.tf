@@ -64,8 +64,15 @@ variable "region" {
 
 variable "cf_zero_trust_enabled" {
   type        = bool
-  description = "Register VSCode with Cloudflare Zero Trust"
+  description = "Use Cloudflare Zero Trust to access to the VSCode Server instance?"
   default     = false
+}
+
+variable "cf_api_key" {
+  type        = string
+  description = "Set by TF_VAR_cf_api_key environment variable on ~/.zprofile or ~/.bash_profile"
+  default     = null
+  sensitive   = true
 }
 
 variable "cf_account_id" {

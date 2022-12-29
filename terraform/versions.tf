@@ -8,7 +8,7 @@ terraform {
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "3.15.0"
+      version = "3.30.0"
     }
     cloudinit = {
       source  = "hashicorp/cloudinit"
@@ -25,6 +25,10 @@ terraform {
     tls = {
       source  = "hashicorp/tls"
       version = "4.0.4"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.4.3"
     }
   }
 }
