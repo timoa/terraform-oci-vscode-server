@@ -20,7 +20,7 @@ repos:
 
   # Checkov
   - repo: https://github.com/bridgecrewio/checkov.git
-    rev: '2.0.917'
+    rev: '2.2.217'
     hooks:
       - id: checkov ### Check misconfiguration and security issues
 
