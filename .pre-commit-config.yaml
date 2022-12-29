@@ -24,6 +24,7 @@ repos:
     rev: '2.2.217'
     hooks:
       - id: checkov ### Check misconfiguration and security issues
+        args: [--skip-path, .github]
 
   # Conventional Commit
   - repo: https://github.com/compilerla/conventional-pre-commit
