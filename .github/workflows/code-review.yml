@@ -29,12 +29,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
 
-      # Install latest Terraform manually as
-      #  Docker-based GitHub Actions are
-      #  slow due to lack of caching
-      # Note: Terraform is not needed for tflint
-      - name: Install Terraform
-        run: brew install terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1 # v2.0.3
 
       # Run init to get module code to be able to use `--module`
       - name: Terraform init
