@@ -68,9 +68,9 @@ variable "cf_zero_trust_enabled" {
   default     = false
 }
 
-variable "cf_api_key" {
+variable "cf_api_token" {
   type        = string
-  description = "Set by TF_VAR_cf_api_key environment variable on ~/.zprofile or ~/.bash_profile"
+  description = "Set by TF_VAR_cf_api_token environment variable on ~/.zprofile or ~/.bash_profile"
   default     = null
   sensitive   = true
 }
