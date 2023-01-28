@@ -6,11 +6,11 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 3.30.0 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 3.32.0 |
 | <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | 2.2.0 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | 2.2.3 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | 2.3.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.2.1 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 4.76.0 |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 4.103.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.4.3 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | 4.0.4 |
 
@@ -18,11 +18,11 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 3.30.0 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 3.32.0 |
 | <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | 2.2.0 |
-| <a name="provider_local"></a> [local](#provider\_local) | 2.2.3 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.3.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.1 |
-| <a name="provider_oci"></a> [oci](#provider\_oci) | 4.76.0 |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | 4.103.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.4.3 |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.4 |
 
@@ -34,38 +34,38 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [cloudflare_access_application.cf_application](https://registry.terraform.io/providers/cloudflare/cloudflare/3.30.0/docs/resources/access_application) | resource |
-| [cloudflare_access_policy.cf_allow_policy](https://registry.terraform.io/providers/cloudflare/cloudflare/3.30.0/docs/resources/access_policy) | resource |
-| [cloudflare_argo_tunnel.cf_tunnel](https://registry.terraform.io/providers/cloudflare/cloudflare/3.30.0/docs/resources/argo_tunnel) | resource |
-| [cloudflare_record.cf_tunnel_cname](https://registry.terraform.io/providers/cloudflare/cloudflare/3.30.0/docs/resources/record) | resource |
-| [cloudflare_tunnel_route.cf_tunnel_route](https://registry.terraform.io/providers/cloudflare/cloudflare/3.30.0/docs/resources/tunnel_route) | resource |
-| [local_file.ansible_hosts](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
-| [local_file.ansible_variables](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
-| [local_file.private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
-| [local_file.public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
+| [cloudflare_access_application.cf_application](https://registry.terraform.io/providers/cloudflare/cloudflare/3.32.0/docs/resources/access_application) | resource |
+| [cloudflare_access_policy.cf_allow_policy](https://registry.terraform.io/providers/cloudflare/cloudflare/3.32.0/docs/resources/access_policy) | resource |
+| [cloudflare_argo_tunnel.cf_tunnel](https://registry.terraform.io/providers/cloudflare/cloudflare/3.32.0/docs/resources/argo_tunnel) | resource |
+| [cloudflare_record.cf_tunnel_cname](https://registry.terraform.io/providers/cloudflare/cloudflare/3.32.0/docs/resources/record) | resource |
+| [cloudflare_tunnel_route.cf_tunnel_route](https://registry.terraform.io/providers/cloudflare/cloudflare/3.32.0/docs/resources/tunnel_route) | resource |
+| [local_file.ansible_hosts](https://registry.terraform.io/providers/hashicorp/local/2.3.0/docs/resources/file) | resource |
+| [local_file.ansible_variables](https://registry.terraform.io/providers/hashicorp/local/2.3.0/docs/resources/file) | resource |
+| [local_file.private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.3.0/docs/resources/file) | resource |
+| [local_file.public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.3.0/docs/resources/file) | resource |
 | [null_resource.cloudflare_playbook](https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource) | resource |
 | [null_resource.common_playbook](https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource) | resource |
 | [null_resource.devops_roles](https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource) | resource |
 | [null_resource.mount_data_volume](https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource) | resource |
 | [null_resource.private_key_chmod](https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource) | resource |
 | [null_resource.public_key_chmod](https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource) | resource |
-| [oci_core_default_route_table.default_rt](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_default_route_table) | resource |
-| [oci_core_instance.instance](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_instance) | resource |
-| [oci_core_internet_gateway.igw](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_internet_gateway) | resource |
-| [oci_core_security_list.security_list_ssh](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_security_list) | resource |
-| [oci_core_security_list.security_list_vscode](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_security_list) | resource |
-| [oci_core_subnet.subnet](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_subnet) | resource |
-| [oci_core_vcn.vcn](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_vcn) | resource |
-| [oci_core_volume.volume](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_volume) | resource |
-| [oci_core_volume_attachment.volume_attachment](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_volume_attachment) | resource |
-| [oci_core_volume_backup_policy_assignment.policy](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/resources/core_volume_backup_policy_assignment) | resource |
+| [oci_core_default_route_table.default_rt](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_default_route_table) | resource |
+| [oci_core_instance.instance](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_instance) | resource |
+| [oci_core_internet_gateway.igw](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_internet_gateway) | resource |
+| [oci_core_security_list.security_list_ssh](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_security_list) | resource |
+| [oci_core_security_list.security_list_vscode](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_security_list) | resource |
+| [oci_core_subnet.subnet](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_subnet) | resource |
+| [oci_core_vcn.vcn](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_vcn) | resource |
+| [oci_core_volume.volume](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_volume) | resource |
+| [oci_core_volume_attachment.volume_attachment](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_volume_attachment) | resource |
+| [oci_core_volume_backup_policy_assignment.policy](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/resources/core_volume_backup_policy_assignment) | resource |
 | [random_id.argo_secret](https://registry.terraform.io/providers/hashicorp/random/3.4.3/docs/resources/id) | resource |
 | [tls_private_key.default](https://registry.terraform.io/providers/hashicorp/tls/4.0.4/docs/resources/private_key) | resource |
-| [cloudflare_zone.cf_zone](https://registry.terraform.io/providers/cloudflare/cloudflare/3.30.0/docs/data-sources/zone) | data source |
+| [cloudflare_zone.cf_zone](https://registry.terraform.io/providers/cloudflare/cloudflare/3.32.0/docs/data-sources/zone) | data source |
 | [cloudinit_config.cloudinit](https://registry.terraform.io/providers/hashicorp/cloudinit/2.2.0/docs/data-sources/config) | data source |
-| [oci_core_images.ubuntu_20_04_aarch64](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/data-sources/core_images) | data source |
-| [oci_core_volume_backup_policies.predefined_volume_backup_policies](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/data-sources/core_volume_backup_policies) | data source |
-| [oci_identity_availability_domains.ads](https://registry.terraform.io/providers/oracle/oci/4.76.0/docs/data-sources/identity_availability_domains) | data source |
+| [oci_core_images.ubuntu_20_04_aarch64](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/data-sources/core_images) | data source |
+| [oci_core_volume_backup_policies.predefined_volume_backup_policies](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/data-sources/core_volume_backup_policies) | data source |
+| [oci_identity_availability_domains.ads](https://registry.terraform.io/providers/oracle/oci/4.103.0/docs/data-sources/identity_availability_domains) | data source |
 
 ## Inputs
 
@@ -79,7 +79,7 @@ No modules.
 | <a name="input_block_volume_size"></a> [block\_volume\_size](#input\_block\_volume\_size) | Block Volume size in GBs (/data) | `string` | `100` | no |
 | <a name="input_cf_account_id"></a> [cf\_account\_id](#input\_cf\_account\_id) | Set by TF\_VAR\_cf\_account\_id environment variable on ~/.zprofile or ~/.bash\_profile | `string` | `null` | no |
 | <a name="input_cf_allowed_users"></a> [cf\_allowed\_users](#input\_cf\_allowed\_users) | Users (emails) allowed to access the VSCode Server application | `list(string)` | <pre>[<br>  "d.laureaux@timoa.com"<br>]</pre> | no |
-| <a name="input_cf_api_key"></a> [cf\_api\_key](#input\_cf\_api\_key) | Set by TF\_VAR\_cf\_api\_key environment variable on ~/.zprofile or ~/.bash\_profile | `string` | `null` | no |
+| <a name="input_cf_api_token"></a> [cf\_api\_token](#input\_cf\_api\_token) | Set by TF\_VAR\_cf\_api\_token environment variable on ~/.zprofile or ~/.bash\_profile | `string` | `null` | no |
 | <a name="input_cf_domain"></a> [cf\_domain](#input\_cf\_domain) | Domain Name for Cloudflare Zero Trust | `string` | `"timoa.com"` | no |
 | <a name="input_cf_subdomain"></a> [cf\_subdomain](#input\_cf\_subdomain) | Subdomain Name for Cloudflare Zero Trust | `string` | `"vsdev"` | no |
 | <a name="input_cf_zero_trust_enabled"></a> [cf\_zero\_trust\_enabled](#input\_cf\_zero\_trust\_enabled) | Register VSCode with Cloudflare Zero Trust | `bool` | `true` | no |

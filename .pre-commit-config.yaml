@@ -21,7 +21,7 @@ repos:
 
   # Checkov
   - repo: https://github.com/bridgecrewio/checkov.git
-    rev: '2.2.217'
+    rev: '2.2.281'
     hooks:
       - id: checkov ### Check misconfiguration and security issues
         args: [--skip-path, .github]
