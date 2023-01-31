@@ -79,7 +79,6 @@ No modules.
 | <a name="input_block_volume_size"></a> [block\_volume\_size](#input\_block\_volume\_size) | Block Volume size in GBs (/data) | `string` | `100` | no |
 | <a name="input_cf_account_id"></a> [cf\_account\_id](#input\_cf\_account\_id) | Set by TF\_VAR\_cf\_account\_id environment variable on ~/.zprofile or ~/.bash\_profile | `string` | `null` | no |
 | <a name="input_cf_allowed_users"></a> [cf\_allowed\_users](#input\_cf\_allowed\_users) | Users (emails) allowed to access the VSCode Server application | `list(string)` | <pre>[<br>  "d.laureaux@timoa.com"<br>]</pre> | no |
-| <a name="input_cf_api_token"></a> [cf\_api\_token](#input\_cf\_api\_token) | Set by TF\_VAR\_cf\_api\_token environment variable on ~/.zprofile or ~/.bash\_profile | `string` | `null` | no |
 | <a name="input_cf_domain"></a> [cf\_domain](#input\_cf\_domain) | Domain Name for Cloudflare Zero Trust | `string` | `"timoa.com"` | no |
 | <a name="input_cf_subdomain"></a> [cf\_subdomain](#input\_cf\_subdomain) | Subdomain Name for Cloudflare Zero Trust | `string` | `"vsdev"` | no |
 | <a name="input_cf_zero_trust_enabled"></a> [cf\_zero\_trust\_enabled](#input\_cf\_zero\_trust\_enabled) | Register VSCode with Cloudflare Zero Trust | `bool` | `true` | no |

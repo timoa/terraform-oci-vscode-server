@@ -6,6 +6,4 @@ provider "oci" {
   region       = var.region
 }
 
-provider "cloudflare" {
-  api_token = var.cf_api_token
-}
+provider "cloudflare" {}

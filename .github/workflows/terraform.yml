@@ -16,8 +16,8 @@ jobs:
       TF_VAR_fingerprint: ${{secrets.OCI_FINGERPRINT}}
       TF_VAR_private_key: ${{secrets.OCI_PRIVATE_KEY}}
       TF_VAR_region: ${{secrets.OCI_REGION}}
-      TF_VAR_cf_api_token: ${{secrets.CLOUDFLARE_API_TOKEN}}
-
+      TF_VAR_cf_account_id: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+      CLOUDFLARE_API_TOKEN: ${{secrets.CLOUDFLARE_API_TOKEN}}
     steps:
       - name: Harden GitHub Actions Runner
         uses: step-security/harden-runner@8f144f8401c4e3693085dff03603f617f566ec6b
