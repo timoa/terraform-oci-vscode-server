@@ -8,7 +8,7 @@ terraform {
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "3.33.1"
+      version = "3.34.0"
     }
     cloudinit = {
       source  = "hashicorp/cloudinit"
