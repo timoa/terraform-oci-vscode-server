@@ -51,7 +51,7 @@ jobs:
         run: terraform init -upgrade
 
       - name: Terraform Plan
-        id: apply
+        id: plan
         working-directory: ./terraform
         run: terraform plan
 
