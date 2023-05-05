@@ -20,7 +20,7 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{secrets.CLOUDFLARE_API_TOKEN}}
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@7f6b548c361c345a0ef5a8af86d80ed70c3a6a56
+        uses: step-security/harden-runner@6e98209e699c7fadbfc248513ca93e4b1f0aad76
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -65,7 +65,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@7f6b548c361c345a0ef5a8af86d80ed70c3a6a56
+        uses: step-security/harden-runner@6e98209e699c7fadbfc248513ca93e4b1f0aad76
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -98,7 +98,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@7f6b548c361c345a0ef5a8af86d80ed70c3a6a56
+        uses: step-security/harden-runner@6e98209e699c7fadbfc248513ca93e4b1f0aad76
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -130,7 +130,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@7f6b548c361c345a0ef5a8af86d80ed70c3a6a56
+        uses: step-security/harden-runner@6e98209e699c7fadbfc248513ca93e4b1f0aad76
         with:
           egress-policy: audit
 
