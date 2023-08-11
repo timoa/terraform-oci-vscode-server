@@ -65,4 +65,4 @@ jobs:
 
       # Run TFSec
       - name: Run TFsec with reviewdog output on the PR
-        uses: reviewdog/action-tfsec@edcc519e87c71fb8b02fb58fea31ccc7b99cd88f # v1.16.0
+        uses: reviewdog/action-tfsec@7996e4ea596eb5cca277a7f2ec03cdb7cdc00f0a # v1.16.1
