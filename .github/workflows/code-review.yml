@@ -37,7 +37,7 @@ jobs:
 
       # Run TFLint
       - name: Run TFlint with reviewdog output on the PR
-        uses: reviewdog/action-tflint@689bb1b9fd0767aeb064618494e6f1e0d705eb24 # v1.21.0
+        uses: reviewdog/action-tflint@2fa60920754fb622564b410ad421ab596adb628a # v1.22.0
 
   # -- SECURITY ---------------------------------------------------------------
   tfsec:
