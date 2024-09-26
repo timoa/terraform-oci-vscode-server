@@ -110,7 +110,7 @@ jobs:
           ref: 'main' # Force checkout of main branch to avoid caching from previous jobs
 
       - name: Terraform Docs
-        uses: terraform-docs/gh-actions@cca78c27ac9e2b6545debf2ecae9df930fd3461c # v1.2.2
+        uses: terraform-docs/gh-actions@aeae0038ed47a547e0c0fca5c059d3335f48fb25 # v1.3.0
         with:
           working-dir: ./terraform
           output-file: USAGE.md
