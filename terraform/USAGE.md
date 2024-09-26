@@ -70,9 +70,9 @@ No modules.
 | <a name="input_cf_subdomain"></a> [cf\_subdomain](#input\_cf\_subdomain) | Subdomain Name for Cloudflare Zero Trust | `string` | `"vscode"` | no |
 | <a name="input_cf_allowed_users"></a> [cf\_allowed\_users](#input\_cf\_allowed\_users) | Users (emails) allowed to access the VSCode Server application | `list(string)` | `[]` | no |
 | <a name="input_allowed_ingress_ssh"></a> [allowed\_ingress\_ssh](#input\_allowed\_ingress\_ssh) | List of IPs allowed to SSH on the instance | `list(string)` | `[]` | no |
-| <a name="input_allowed_egress_ssh"></a> [allowed\_egress\_ssh](#input\_allowed\_egress\_ssh) | List of IPs the instance is allowed to connect | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
+| <a name="input_allowed_egress_ssh"></a> [allowed\_egress\_ssh](#input\_allowed\_egress\_ssh) | List of IPs the instance is allowed to connect | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
 | <a name="input_allowed_ingress_vscode"></a> [allowed\_ingress\_vscode](#input\_allowed\_ingress\_vscode) | List of IPs allowed to access to VS Code Server | `list(string)` | `[]` | no |
-| <a name="input_allowed_egress_vscode"></a> [allowed\_egress\_vscode](#input\_allowed\_egress\_vscode) | List of IPs the instance is allowed to connect | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
+| <a name="input_allowed_egress_vscode"></a> [allowed\_egress\_vscode](#input\_allowed\_egress\_vscode) | List of IPs the instance is allowed to connect | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
 | <a name="input_instance_shape"></a> [instance\_shape](#input\_instance\_shape) | Instance Shape | `string` | `"VM.Standard.A1.Flex"` | no |
 | <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of OCPUS (CPU cores) | `string` | `4` | no |
 | <a name="input_instance_shape_config_memory_in_gbs"></a> [instance\_shape\_config\_memory\_in\_gbs](#input\_instance\_shape\_config\_memory\_in\_gbs) | Memory in GBs | `string` | `24` | no |
@@ -92,7 +92,7 @@ No modules.
 | <a name="input_keypair_public_key_extension"></a> [keypair\_public\_key\_extension](#input\_keypair\_public\_key\_extension) | Public key extension | `string` | `".pub"` | no |
 | <a name="input_keypair_chmod_command_public"></a> [keypair\_chmod\_command\_public](#input\_keypair\_chmod\_command\_public) | Template of the command executed on the public key file | `string` | `"chmod 600 %v"` | no |
 | <a name="input_keypair_chmod_command_private"></a> [keypair\_chmod\_command\_private](#input\_keypair\_chmod\_command\_private) | Template of the command executed on the private key file | `string` | `"chmod 400 %v"` | no |
-| <a name="input_labels"></a> [labels](#input\_labels) | Default labels to associate to these resources | `map(string)` | <pre>{<br>  "businessunit": "mycompany",<br>  "project": "VSCode Server",<br>  "team": "devops",<br>  "terraform": "true"<br>}</pre> | no |
+| <a name="input_labels"></a> [labels](#input\_labels) | Default labels to associate to these resources | `map(string)` | <pre>{<br/>  "businessunit": "mycompany",<br/>  "project": "VSCode Server",<br/>  "team": "devops",<br/>  "terraform": "true"<br/>}</pre> | no |
 
 ## Outputs
 
